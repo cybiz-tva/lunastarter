@@ -144,7 +144,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 30px;
 }
 .home__section__pic {
@@ -164,30 +164,72 @@ body {
   align-items: center;
 }
 .home__section__buttons__btn {
-  padding: 1em 2em;
-  border-radius: 5px;
-  border: none;
-  margin: 0em 0.5em;
-  font-size: 14px;
-  font-weight: 500;
   cursor: pointer;
+  --color: white;
+  font-family: inherit;
+  display: inline-block;
+  width: fit-content;
+  padding: 1em 2em;
+  margin: 0em 0.8em;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+  border: none;
+}
+
+.home__section__buttons__btn:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 150px;
+  width: 150%;
+  border-radius: 50%;
+}
+
+.home__section__buttons__btn:before {
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+
+.home__section__buttons__btn:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+.home__section__buttons__btn:active:before {
+  background: linear-gradient(90deg, #6825e6, #a655ba);
+  transition: background 0s;
 }
 .home__section__buttons__btn__primary {
   background: linear-gradient(90deg, #3480a1, #2eaab4, #26e4cf);
-  color: white;
+}
+.home__section__buttons__btn__primary:hover {
+  color: #2eaab4;
+}
+.home__section__buttons__btn__secondary::before {
+  background: white;
+}
+.home__section__buttons__btn__primary::before {
+  background: white;
 }
 .home__section__buttons__btn__secondary {
   background: linear-gradient(90deg, #6825e6, #a655ba);
-  color: white;
 }
-.home__section__buttons__btn:hover {
-  transition: 300ms ease-in-out;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+.home__section__buttons__btn__secondary:hover {
+  color: #6825e6;
 }
+
 .feature__section {
   width: 100%;
   max-width: 1440px;
   margin: 8em auto;
+  margin-bottom: 4em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,7 +252,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 2.5em 2em;
   margin-bottom: 2em;
   border-radius: 20px;
@@ -225,6 +267,143 @@ body {
 .feature__section__content__entry:hover {
   transition: 300ms ease-in-out;
   background: linear-gradient(#3480a1, #2eaab4, #26e4cf);
+}
+.about__section {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  width: 100%;
+  max-width: calc(1440px - 2.5em);
+  margin: 0em auto;
+  display: flex;
+  padding: 4em;
+}
+.about__section__left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2em;
+}
+.about__section__left__img {
+  width: 400px;
+}
+.about__section__right {
+  width: 50%;
+}
+.about__section__right__heading {
+  font-size: 40px;
+  width: 50%;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 0.3em;
+}
+.about__section__right__info {
+  color: white;
+  font-size: 14px;
+  line-height: 22px;
+}
+.road__map__section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 6em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.road__map__section__img {
+  width: 100%;
+  max-width: 700px;
+}
+.road__map__section__bottom {
+  font-size: 40px;
+  color: white;
+  width: 100%;
+  max-width: calc(1440px - 1em);
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2em;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 0px;
+}
+.team__section {
+  width: 100%;
+  max-width: calc(1440px - 2em);
+  margin: 0em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team__section__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.team__section__content__entry {
+  width: 24%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2em;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team__section__content__entry__img {
+  width: 80%;
+  border-radius: 50px;
+}
+.team__section__content__entry__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0em;
+}
+.team__section__content__entry__link__entry {
+  padding: 0.5em 1em;
+  color: #f6f6f6;
+}
+.team__section__content__entry__link__entry:hover {
+  color: #26e4cf;
+}
+.team__section__content__entry__content {
+  color: white;
+  font-size: 14px;
+  text-align: justify;
+}
+.partner__section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 5em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.partner__section__content {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.partner__section__content__entry {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+.partner__section__content__entry img {
+  max-width: 80px;
 }
 @media (max-width: 1400px) {
   .App {
@@ -265,6 +444,21 @@ body {
   .feature__section__content__entry {
     width: 48%;
   }
+  .about__section {
+    margin: 0em;
+    margin-bottom: 5em;
+    flex-direction: column;
+  }
+  .about__section__left {
+    width: 100%;
+    margin-bottom: 4em;
+  }
+  .about__section__right {
+    width: 100%;
+  }
+  .team__section__content__entry {
+    width: 48%;
+  }
 }
 @media (max-width: 700px) {
   .header__nav .header__nav__link__btn {
@@ -291,6 +485,35 @@ body {
   }
   .App {
     padding: 0em 1em;
+  }
+  .road__map__section__img {
+    max-width: 300px;
+  }
+  .road__map__section__bottom {
+    position: relative;
+    height: 100px;
+    justify-content: center;
+    font-size: 30px;
+  }
+  .about__section {
+    padding: 5em 2em;
+  }
+  .about__section__left__img {
+    width: 200px;
+  }
+  .about__section__right__heading {
+    text-align: center;
+    font-size: 30px;
+    width: 100%;
+  }
+  .about__section__right__info {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .team__section__content__entry {
+    width: 100%;
   }
 }
 @media (max-width: 450px) {

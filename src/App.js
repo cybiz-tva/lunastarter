@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import "./App.scss";
 import Header from "./components/Header";
 import home__section__pic from "./assets/home__section__pic.svg";
+import logoBig from "./assets/logoBig.png";
+import roadMapPic from "./assets/roadMapPic.png";
+import teamImg1 from "./assets/teamImg1.png";
+import teamImg2 from "./assets/teamImg2.png";
+import teamImg3 from "./assets/teamImg3.png";
+import teamImg4 from "./assets/teamImg4.png";
+import Iconawesomefacebook from "./assets/Icon awesome-facebook-f.png";
+import Iconawesomeyoutube from "./assets/Icon awesome-youtube.png";
+import Iconpaymentapplepay from "./assets/Icon payment-apple-pay.png";
+import Iconsimplesamsung from "./assets/Icon simple-samsung.png";
+import { Facebook, Instagram, Linkedin } from "react-feather";
 
 function FeatureEntry() {
   return (
@@ -38,6 +49,35 @@ function FeatureEntry() {
     </div>
   );
 }
+function TeamCard({ image }) {
+  return (
+    <div className="team__section__content__entry">
+      <img
+        src={image}
+        alt="teamImg"
+        className="team__section__content__entry__img"
+      />
+      <div className="team__section__content__entry__link">
+        <a href="#" className="team__section__content__entry__link__entry">
+          <Facebook size={20} color="currentColor" />
+        </a>
+        <a href="#" className="team__section__content__entry__link__entry">
+          <Instagram size={20} color="currentColor" />
+        </a>
+        <a href="#" className="team__section__content__entry__link__entry">
+          <Linkedin size={20} color="currentColor" />
+        </a>
+      </div>
+      <div className="team__section__content__entry__content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -71,6 +111,75 @@ function App() {
             <FeatureEntry />
             <FeatureEntry />
             <FeatureEntry />
+          </div>
+        </div>
+        <div className="about__section">
+          <div className="about__section__left">
+            <img
+              src={logoBig}
+              alt="logoBig"
+              className="about__section__left__img"
+            />
+          </div>
+          <div className="about__section__right">
+            <div className="about__section__right__heading">
+              What is Lunastarter?
+            </div>
+            <div className="about__section__right__info">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </div>
+          </div>
+        </div>
+        <div className="road__map__section">
+          <img
+            src={roadMapPic}
+            alt="roadMapPic"
+            className="road__map__section__img"
+          />
+          <div className="road__map__section__bottom">Road Map</div>
+        </div>
+        <div className="team__section">
+          <div className="feature__section__heading">OUR TEAM</div>
+          <div className="team__section__content">
+            <TeamCard image={teamImg1} />
+            <TeamCard image={teamImg2} />
+            <TeamCard image={teamImg3} />
+            <TeamCard image={teamImg4} />
+          </div>
+        </div>
+        <div className="partner__section">
+          <div className="feature__section__heading">Our Partners</div>
+          <div className="partner__section__content">
+            <div className="partner__section__content__entry">
+              <img src={Iconawesomeyoutube} alt="Iconawesomefacebook" />
+            </div>
+            <div className="partner__section__content__entry">
+              <img src={Iconawesomeyoutube} alt="Iconawesomefacebook" />
+            </div>
+            <div className="partner__section__content__entry">
+              <img src={Iconpaymentapplepay} alt="Iconawesomefacebook" />
+            </div>
+            <div className="partner__section__content__entry">
+              <img src={Iconsimplesamsung} alt="Iconawesomefacebook" />
+            </div>
+            <div className="partner__section__content__entry">
+              <img src={Iconawesomefacebook} alt="Iconawesomefacebook" />
+            </div>
+            <div className="partner__section__content__entry">
+              <img src={Iconpaymentapplepay} alt="Iconawesomefacebook" />
+            </div>
+            <div className="partner__section__content__entry">
+              <img src={Iconsimplesamsung} alt="Iconawesomefacebook" />
+            </div>
           </div>
         </div>
       </div>
