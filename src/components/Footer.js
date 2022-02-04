@@ -213,7 +213,7 @@ export default function Footer() {
         <div className="footer__conatiner__buttom__content__right__para">
           <Link
             to="/"
-            style={{ marginRight: "2em" }}
+            style={{ marginRight: "2em", fontWeight: "bold" }}
             className="footer__overlay__content__col__entry"
             onClick={() => {
               window.scrollTo({
@@ -226,6 +226,7 @@ export default function Footer() {
           </Link>
           <Link
             to="/"
+            style={{ fontWeight: "bold" }}
             className="footer__overlay__content__col__entry"
             onClick={() => {
               window.scrollTo({
