@@ -42,6 +42,9 @@ function TeamCard({ image }) {
           <Linkedin size={20} color="currentColor" />
         </a>
       </div>
+      <div className="team__section__content__entry__content__heading">
+        John Doe
+      </div>
       <div className="team__section__content__entry__content">
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
