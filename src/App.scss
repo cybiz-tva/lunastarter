@@ -7,7 +7,6 @@
 *::after,
 *::before {
   box-sizing: border-box;
-  cursor: none !important;
 }
 body {
   margin: 0;
@@ -612,6 +611,226 @@ body {
   display: flex;
   align-items: center;
 }
+.stake__home__section {
+  width: 100%;
+  max-width: calc(1440px - 2.5em);
+  margin: 4em auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stake__home__section__heading {
+  font-size: 35px;
+  font-weight: 500;
+  font-family: spaceAge;
+  color: white;
+  flex: 1;
+  margin-right: 2em;
+}
+.stake__home__section__card {
+  flex: 1;
+  height: 250px;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2em;
+  align-items: center;
+  margin-right: 2em;
+}
+.stake__home__section__card__primary {
+  background: linear-gradient(45deg, #3480a1, #2eaab4, #26e4cf);
+}
+.stake__home__section__card__secondary {
+  background: linear-gradient(45deg, #6825e6, #a655ba);
+}
+.stake__home__section__card:last-child {
+  margin-right: 0em;
+}
+.stake__home__section__card__heading {
+  font-size: 22px;
+}
+.stake__home__section__card__sub__heading {
+  margin-top: 4em;
+}
+.stake__home__section__cards {
+  display: flex;
+  width: 70%;
+}
+.stake__types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4em;
+}
+.stake__types__entry {
+  position: relative;
+}
+.stake__types__entry__input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+.stake__types__entry__content {
+  padding: 0.7em 1.5em;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+}
+.stake__types__entry__content svg {
+  margin-right: 0.5em;
+}
+.stake__types__entry__input:hover ~ .stake__types__entry__content {
+  transition: 300ms ease-in-out;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.stake__types__entry__input:checked ~ .stake__types__entry__content {
+  transition: 300ms ease-in-out;
+  background-color: #ffffff;
+  color: #1f072c;
+}
+.stake__types__entry:first-child .stake__types__entry__content {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.stake__types__entry:last-child .stake__types__entry__content {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.allowance__form {
+  width: 100%;
+  max-width: fit-content;
+  min-width: 450px;
+  margin: 0em auto;
+  background: linear-gradient(
+    45deg,
+    rgba(160, 81, 191, 0.3),
+    rgba(80, 41, 96, 0.3)
+  );
+  padding: 2em;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4em;
+}
+.allowance__form:last-child {
+  padding: 2em 4em;
+}
+.allowance__form__heading {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  margin-bottom: 0.5em;
+  font-family: spaceAge;
+}
+.allowance__form__current {
+  font-size: 14px;
+  color: #26decc;
+  margin-bottom: 0.3em;
+}
+.allowance__form__current__value {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  margin-bottom: 1em;
+}
+.allowance__form__input {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 0em 1.5em;
+  margin-bottom: 2em;
+  outline: none;
+  color: white;
+}
+.allowance__form__input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.allowance__form__input:hover {
+  transition: 300ms ease-in-out;
+  border-color: #26decc;
+}
+.allowance__form__input:focus {
+  transition: 300ms ease-in-out;
+  border-color: #26decc;
+  border-width: 2px;
+}
+.allowance__form__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.allowance__form__buttons__primary {
+  padding: 0.7em 1.5em;
+  background: linear-gradient(90deg, #ff8636, #a81f1f);
+  border: none;
+  color: white;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-right: 0.5em;
+}
+.allowance__form__buttons__secondary {
+  padding: 0.7em 1.5em;
+  background: linear-gradient(90deg, #6825e6, #a655ba);
+  border: none;
+  color: white;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-right: 0.5em;
+  min-width: 200px;
+}
+.allowance__form__duration {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+.allowance__form__duration__entry {
+  position: relative;
+  margin-right: 1em;
+}
+.allowance__form__duration__entry__input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.allowance__form__duration__entry__content {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5em 1.2em;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.allowance__form__duration__entry:last-child {
+  margin-right: 0em;
+}
+.allowance__form__duration__entry__input:hover
+  ~ .allowance__form__duration__entry__content {
+  transition: 300ms ease-in-out;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.allowance__form__duration__entry__input:checked
+  ~ .allowance__form__duration__entry__content {
+  transition: 300ms ease-in-out;
+  background-color: white;
+  color: #3e1a4e;
+}
 @media (max-width: 1400px) {
   .App {
     padding: 0em 2em;
@@ -665,6 +884,19 @@ body {
   }
   .team__section__content__entry {
     width: 48%;
+  }
+  .stake__home__section {
+    flex-direction: column;
+  }
+  .stake__home__section__heading {
+    margin-right: 0em;
+    margin-bottom: 1.5em;
+  }
+  .stake__home__section__card {
+    width: 50%;
+  }
+  .stake__home__section__cards {
+    width: 100%;
   }
 }
 @media (max-width: 850px) {
@@ -742,6 +974,13 @@ body {
     width: 100%;
     text-align: center;
   }
+  .stake__home__section__cards {
+    flex-direction: column;
+  }
+  .stake__home__section__card {
+    width: 100%;
+    margin-bottom: 1em;
+  }
 }
 @media (max-width: 600px) {
   .team__section__content__entry {
@@ -765,5 +1004,9 @@ body {
   }
   .feature__section__content__entry {
     width: 100%;
+  }
+  .stake__home__section__heading {
+    text-align: center;
+    font-size: 25px;
   }
 }
