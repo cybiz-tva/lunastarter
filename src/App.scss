@@ -794,11 +794,13 @@ body {
 .allowance__form__duration {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
 }
 .allowance__form__duration__entry {
   position: relative;
   margin-right: 1em;
+  margin-bottom: 0.5em;
 }
 .allowance__form__duration__entry__input {
   position: absolute;
@@ -830,6 +832,89 @@ body {
   transition: 300ms ease-in-out;
   background-color: white;
   color: #3e1a4e;
+}
+.stake__table {
+  width: 100%;
+  max-width: calc(1440px - 2.5em);
+  margin: 0em auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #100219;
+  border-radius: 20px;
+  border: 1px solid #a051bf;
+  box-shadow: 0px 0px 50px #a051bf;
+  padding: 2em;
+  margin-bottom: 4em;
+  overflow-x: auto;
+}
+.stake__table::-webkit-scrollbar {
+  height: 10px;
+}
+.stake__table::-webkit-scrollbar-thumb {
+  background-color: #26decc;
+  border-radius: 50px;
+}
+.stake__table::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.stake__table__header {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  margin-bottom: 1em;
+  background-color: #322639;
+  border-radius: 50px;
+  width: 100%;
+}
+.stake__table__header__entry {
+  min-width: 130px;
+  padding: 0em 1em;
+  font-size: 12px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+.stake__table__header__entry span {
+  font-size: 10px;
+}
+.stake__table__content {
+  display: flex;
+  flex-direction: column;
+}
+.stake__table__content__row {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+.stake__table__content__row__entry {
+  min-width: 130px;
+  padding: 0em 1em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  flex: 1;
+}
+.stake__table__content__row__entry__button {
+  width: 80%;
+  height: 32px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+}
+.stake__table__content__row__entry__button__primary {
+  background: linear-gradient(45deg, #6825e6, #a655ba);
+}
+.stake__table__content__row__entry__button__secondary {
+  background: linear-gradient(45deg, #3480a1, #26e4cf);
+}
+.stake__table__content__row__entry__button:hover {
+  transition: 300ms ease-in-out;
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.3);
 }
 @media (max-width: 1400px) {
   .App {
@@ -897,6 +982,9 @@ body {
   }
   .stake__home__section__cards {
     width: 100%;
+  }
+  .stake__table__header {
+    width: fit-content;
   }
 }
 @media (max-width: 850px) {
@@ -985,6 +1073,28 @@ body {
 @media (max-width: 600px) {
   .team__section__content__entry {
     width: 100%;
+  }
+  .allowance__form {
+    min-width: 100%;
+  }
+  .allowance__form__buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .allowance__form__buttons__primary {
+    margin-right: 0em;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .allowance__form__buttons__secondary {
+    min-width: 100%;
+  }
+  .allowance__form__duration__entry {
+    width: 100%;
+    margin-right: 0em;
+  }
+  .allowance__form {
+    padding: 2em !important;
   }
 }
 @media (max-width: 450px) {

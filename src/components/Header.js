@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Header() {
@@ -21,7 +22,9 @@ function Header() {
   return (
     <div className="header">
       <div className="header__wrapper">
-        <img src={logo} alt="logo" className="header__logo" />
+        <Link to="/">
+          <img src={logo} alt="logo" className="header__logo" />
+        </Link>
         <div className="header__btns">
           <button
             className="header__menu"

@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Lock, Unlock } from "react-feather";
 
+function TableRow() {
+  return (
+    <div className="stake__table__content__row">
+      <div className="stake__table__content__row__entry">4 - 6 - 22</div>
+      <div className="stake__table__content__row__entry">233795.332233</div>
+      <div className="stake__table__content__row__entry">6 Days</div>
+      <div className="stake__table__content__row__entry">343.3123</div>
+      <div className="stake__table__content__row__entry">343.544</div>
+      <div className="stake__table__content__row__entry">
+        <button className="stake__table__content__row__entry__button stake__table__content__row__entry__button__primary">
+          Claim Reward
+        </button>
+      </div>
+      <div className="stake__table__content__row__entry">
+        <button className="stake__table__content__row__entry__button stake__table__content__row__entry__button__secondary">
+          Unstake
+        </button>
+      </div>
+    </div>
+  );
+}
 export default function Stake() {
+  const [lock, setLock] = useState(false);
   return (
     <>
       <div className="stake__home__section">
@@ -32,6 +54,7 @@ export default function Stake() {
             className="stake__types__entry__input"
             name="stake__types__entry__input"
             defaultChecked
+            onClick={() => setLock(true)}
           />
           <div className="stake__types__entry__content">
             <Lock size={15} color="currentColor" />
@@ -43,12 +66,70 @@ export default function Stake() {
             type="radio"
             className="stake__types__entry__input"
             name="stake__types__entry__input"
+            onClick={() => setLock(false)}
           />
           <div className="stake__types__entry__content">
             <Unlock size={15} color="currentColor" />
             <span>Unlocked</span>
           </div>
         </div>
+      </div>
+      <div className="stake__table">
+        {lock ? (
+          <>
+            <div className="stake__table__header">
+              <div className="stake__table__header__entry">Staking Date</div>
+              <div className="stake__table__header__entry">Amount</div>
+              <div className="stake__table__header__entry">
+                Unstaking Allowed After <span>(Remaining Days)</span>
+              </div>
+              <div className="stake__table__header__entry">Reward earned</div>
+              <div className="stake__table__header__entry">APR</div>
+              <div className="stake__table__header__entry"></div>
+              <div className="stake__table__header__entry"></div>
+            </div>
+            <div className="stake__table__content">
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="stake__table__header">
+              <div className="stake__table__header__entry">Staking Date</div>
+              <div className="stake__table__header__entry">Amount</div>
+              <div className="stake__table__header__entry">
+                Shouldn't Unstake Before<span>(Remaining Days)</span>
+              </div>
+              <div className="stake__table__header__entry">Reward earned</div>
+              <div className="stake__table__header__entry">APR</div>
+              <div className="stake__table__header__entry">APR</div>
+              <div className="stake__table__header__entry">APR</div>
+            </div>
+            <div className="stake__table__content">
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+              <TableRow />
+            </div>
+          </>
+        )}
       </div>
       <form className="allowance__form">
         <div className="allowance__form__heading">Allowance</div>
