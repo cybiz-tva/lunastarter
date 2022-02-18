@@ -299,9 +299,13 @@ body {
   font-size: 20px;
   text-align: center;
 }
+.feature__section__content__entry:hover {
+  transition: 300ms ease-in-out;
+  background: linear-gradient(#533192, #8c4dff);
+}
 .feature__section__content__entry:nth-child(1):hover {
   transition: 300ms ease-in-out;
-  background: linear-gradient(#3480a1, #2eaab4, #26e4cf);
+  background: linear-gradient(#533192, #8c4dff);
 }
 .feature__section__content__entry:nth-child(2):hover {
   transition: 300ms ease-in-out;
@@ -312,6 +316,10 @@ body {
   background: linear-gradient(#ec6e6e, #991313);
 }
 .feature__section__content__entry:nth-child(4):hover {
+  transition: 300ms ease-in-out;
+  background: linear-gradient(#ea453a, #fedb3d);
+}
+.feature__section__content__entry:nth-child(8):hover {
   transition: 300ms ease-in-out;
   background: linear-gradient(#ea453a, #fedb3d);
 }
