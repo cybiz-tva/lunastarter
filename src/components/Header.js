@@ -51,9 +51,9 @@ function Header() {
             <a href="#" className="header__nav__link">
               Buy Now
             </a>
-            <a href="#" className="header__nav__link">
-              Governance
-            </a>
+            <Link to="/stake" className="header__nav__link">
+              Stake
+            </Link>
             <a href="#" className="header__nav__link">
               Whitepaper
             </a>

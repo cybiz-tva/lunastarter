@@ -23,7 +23,7 @@ function TableRow() {
   );
 }
 export default function Stake() {
-  const [lock, setLock] = useState(false);
+  const [lock, setLock] = useState(true);
   return (
     <>
       <div className="stake__home__section">
@@ -112,8 +112,8 @@ export default function Stake() {
               </div>
               <div className="stake__table__header__entry">Reward earned</div>
               <div className="stake__table__header__entry">APR</div>
-              <div className="stake__table__header__entry">APR</div>
-              <div className="stake__table__header__entry">APR</div>
+              <div className="stake__table__header__entry"></div>
+              <div className="stake__table__header__entry"></div>
             </div>
             <div className="stake__table__content">
               <TableRow />
