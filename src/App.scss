@@ -500,51 +500,40 @@ body {
   align-items: center;
 }
 .partner__section__content__entry {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  height: 180px;
-  width: 180px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  height: 80px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1em;
   cursor: pointer;
+  position: relative;
 }
-.partner__section__content__entry:nth-child(even):hover {
+.partner__section__content__entry::before {
+  position: absolute;
+  content: "";
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  z-index: 1;
+  left: 70px;
+}
+.swiper-slide:nth-child(odd) .partner__section__content__entry:hover {
   transition: 300ms ease-in-out;
-  background: linear-gradient(#3480a1, #2eaab4, #26e4cf);
+  background: linear-gradient(45deg, #ea453a, #fedb3d);
 }
-.partner__section__content__entry:nth-child(1):hover {
+.swiper-slide:nth-child(even) .partner__section__content__entry:hover {
   transition: 300ms ease-in-out;
-  background: linear-gradient(#3480a1, #2eaab4, #26e4cf);
+  background: linear-gradient(45deg, #3480a1, #2eaab4, #26e4cf);
 }
-.partner__section__content__entry:nth-child(7):hover {
-  transition: 300ms ease-in-out;
-  background: linear-gradient(#ec6e6e, #991313);
-}
-.partner__section__content__entry:nth-child(2):hover {
-  transition: 300ms ease-in-out;
-  background: linear-gradient(#ec6e6e, #991313);
-}
-.partner__section__content__entry:nth-child(odd):hover {
-  transition: 300ms ease-in-out;
-  background: linear-gradient(#ea453a, #fedb3d);
-}
-.partner__section__content__entry:nth-child(7):hover {
-  transition: 300ms ease-in-out;
-  background: linear-gradient(#533192, #8c4dff);
-}
-.partner__section__content__entry:nth-child(4):hover {
-  transition: 300ms ease-in-out;
-  background: linear-gradient(#533192, #8c4dff);
-}
-.partner__section__content__entry:nth-child(3):hover {
-  transition: 300ms ease-in-out;
-  background: linear-gradient(#3480a1, #2eaab4, #26e4cf);
-}
+
 .partner__section__content__entry img {
-  max-width: 80px;
-  max-height: 80px;
+  max-width: 50px;
+  max-height: 50px;
 }
 .footer__conatiner {
   width: 100%;

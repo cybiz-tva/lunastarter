@@ -431,10 +431,8 @@ function Home() {
           <Swiper
             spaceBetween={50}
             slidesPerView={slidesPerView}
-            onSlideChange={() => console.log("slide change")}
             loop={true}
-            autoplay={true}
-            onSwiper={(swiper) => console.log(swiper)}
+            autoplay={3000}
           >
             <SwiperSlide>
               <div className="partner__section__content__entry">
