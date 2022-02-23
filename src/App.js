@@ -7,13 +7,17 @@ import { Route, Routes } from "react-router-dom";
 import Stake from "./screens/Stake";
 
 function App() {
+  const [walletAddress, setWalletAddress] = useState("");
   return (
     <>
-      <Header />
+      <Header setWalletAddress={setWalletAddress} />
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/stake" element={<Stake />} />
+          <Route
+            path="/stake"
+            element={<Stake walletAddress={walletAddress} />}
+          />
         </Routes>
       </div>
       <Footer />

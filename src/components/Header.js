@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useWallet, WalletStatus } from "@terra-money/wallet-provider";
 
-function Header() {
+function Header({ setWalletAddress }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 1000) {
@@ -20,18 +20,7 @@ function Header() {
       }
     });
   }, []);
-  const {
-    status,
-    network,
-    wallets,
-    availableConnectTypes,
-    availableInstallTypes,
-    availableConnections,
-    supportFeatures,
-    connect,
-    install,
-    disconnect,
-  } = useWallet();
+  const { status, wallets, availableConnections, connect } = useWallet();
 
   return (
     <div className="header">
@@ -56,8 +45,10 @@ function Header() {
               <Menu size={20} color="currentColor" />
             )}
           </button>
-          {wallets.map((item) => (
-            <span style={{ color: "#ffffff" }}>{item.terraAddress}</span>
+          {wallets.map((item, i) => (
+            <span key={i} style={{ color: "#ffffff" }}>
+              {item.terraAddress}
+            </span>
           ))}
 
           {status === WalletStatus.WALLET_NOT_CONNECTED && (
@@ -107,9 +98,12 @@ function Header() {
                   ))}
               </>
             )}
-            {wallets.map((item) => (
-              <span style={{ color: "#ffffff" }}>{item.terraAddress}</span>
-            ))}
+            {wallets.map((item) => {
+              setWalletAddress(item.terraAddress);
+              return (
+                <span style={{ color: "#ffffff" }}>{item.terraAddress}</span>
+              );
+            })}
           </div>
         ) : null}
       </div>
