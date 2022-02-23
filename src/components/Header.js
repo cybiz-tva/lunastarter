@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useWallet, WalletStatus } from "@terra-money/wallet-provider";
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -19,12 +20,29 @@ function Header() {
       }
     });
   }, []);
+  const {
+    status,
+    network,
+    wallets,
+    availableConnectTypes,
+    availableInstallTypes,
+    availableConnections,
+    supportFeatures,
+    connect,
+    install,
+    disconnect,
+  } = useWallet();
+
   return (
     <div className="header">
       <div className="header__wrapper">
         <Link to="/">
           <img src={logo} alt="logo" className="header__logo" />
         </Link>
+
+        {/* {status === WalletStatus.WALLET_CONNECTED && (
+          <button onClick={() => disconnect()}>Disconnect</button>
+        )} */}
         <div className="header__btns">
           <button
             className="header__menu"
@@ -38,10 +56,26 @@ function Header() {
               <Menu size={20} color="currentColor" />
             )}
           </button>
-          <button className="header__nav__link__btn">
-            <span>Connect Wallet</span>
-            <div class="liquid"></div>
-          </button>
+          {wallets.map((item) => (
+            <span style={{ color: "#ffffff" }}>{item.terraAddress}</span>
+          ))}
+
+          {status === WalletStatus.WALLET_NOT_CONNECTED && (
+            <>
+              {availableConnections
+                .filter((item, i) => i === 0)
+                .map(({ type, name, icon, identifier = "" }) => (
+                  <button
+                    className="header__nav__link__btn"
+                    key={"connection-" + type + identifier}
+                    onClick={() => connect(type, identifier)}
+                  >
+                    <span>Connect Wallet</span>
+                    <div class="liquid"></div>
+                  </button>
+                ))}
+            </>
+          )}
         </div>
         {isNavOpen ? (
           <div className="header__nav">
@@ -57,10 +91,25 @@ function Header() {
             <a href="#" className="header__nav__link">
               Whitepaper
             </a>
-            <button className="header__nav__link__btn">
-              <span>Connect Wallet</span>
-              <div class="liquid"></div>
-            </button>
+            {status === WalletStatus.WALLET_NOT_CONNECTED && (
+              <>
+                {availableConnections
+                  .filter((item, i) => i === 0)
+                  .map(({ type, name, icon, identifier = "" }) => (
+                    <button
+                      className="header__nav__link__btn"
+                      key={"connection-" + type + identifier}
+                      onClick={() => connect(type, identifier)}
+                    >
+                      <span>Connect Wallet</span>
+                      <div class="liquid"></div>
+                    </button>
+                  ))}
+              </>
+            )}
+            {wallets.map((item) => (
+              <span style={{ color: "#ffffff" }}>{item.terraAddress}</span>
+            ))}
           </div>
         ) : null}
       </div>

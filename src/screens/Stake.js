@@ -1,5 +1,16 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Lock, Unlock } from "react-feather";
+import { useConnectedWallet, useLCDClient } from "@terra-money/wallet-provider";
+import { Fee, MsgExecuteContract, MsgSend } from "@terra-money/terra.js";
+import contracts from "../assets/contracts.json";
+import {
+  CreateTxFailed,
+  Timeout,
+  TxFailed,
+  TxResult,
+  TxUnspecifiedError,
+  UserDenied,
+} from "@terra-money/wallet-provider";
 
 function TableRow() {
   return (
@@ -23,7 +34,46 @@ function TableRow() {
   );
 }
 export default function Stake() {
+  console.log(contracts.dummy);
   const [lock, setLock] = useState(true);
+  const lcd = useLCDClient();
+  const connectedWallet = useConnectedWallet();
+
+  useEffect(() => {
+    if (connectedWallet) {
+      // lcd.bank.balance(connectedWallet.walletAddress).then(([coins]) => {
+      //   setBank(coins.toString());
+      // });
+      async function get() {
+        const terra = lcd;
+        let result = await terra.wasm.contractQuery(
+          contracts.dummy,
+          {
+            get_count: {},
+          } // query msg
+        );
+        console.log(result);
+      }
+      get();
+    }
+  }, [connectedWallet, lcd]);
+  console.log(connectedWallet);
+  function increment() {
+    console.log(connectedWallet.walletAddress);
+
+    const execute = new MsgExecuteContract(
+      connectedWallet.walletAddress, // sender
+      contracts.dummy, // contract account address
+      { increment: {} }, // handle msg
+      {} // coins
+    );
+    const executeTx = connectedWallet.post({
+      msgs: [execute],
+    });
+
+    const executeTxResult = terra.tx.broadcast(executeTx);
+    console.log(executeTxResult);
+  }
   return (
     <>
       <div className="stake__home__section">
@@ -131,7 +181,12 @@ export default function Stake() {
           </>
         )}
       </div>
-      <form className="allowance__form">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+        className="allowance__form"
+      >
         <div className="allowance__form__heading">Allowance</div>
         <div className="allowance__form__current">Current Allowance</div>
         <div className="allowance__form__current__value">2432432.343432</div>
@@ -144,7 +199,10 @@ export default function Stake() {
           <button className="allowance__form__buttons__primary">
             Decrease Allowance
           </button>
-          <button className="allowance__form__buttons__secondary">
+          <button
+            className="allowance__form__buttons__secondary"
+            onClick={increment}
+          >
             Increase Allowance
           </button>
         </div>
