@@ -6,19 +6,19 @@ import contracts from "../assets/contracts.json";
 
 function TableRow({ data, connectedWallet, lcd, lock }) {
   console.log(data);
-  let apr = 1;
+  let apr = "40%";
   if (data.locked === true && data.policy === 0) {
-    apr = "140%";
+    apr = "40%";
   } else if (data.locked === true && data.policy === 1) {
-    apr = "280%";
+    apr = "40%";
   } else if (data.locked === true && data.policy === 2) {
-    apr = "420%";
+    apr = "40%";
   } else if (data.locked === false && data.policy === 0) {
-    apr = "125%";
+    apr = "25%";
   } else if (data.locked === false && data.policy === 1) {
-    apr = "250%";
+    apr = "25%";
   } else if (data.locked === false && data.policy === 2) {
-    apr = "375%";
+    apr = "25%";
   }
   let claim_allowed_time =
     data.claim_allowed_time - (Date.now() / 1000).toFixed();
@@ -105,34 +105,32 @@ export default function Stake({ walletAddress }) {
   const [allowanceAmount, setAllowanceAmount] = useState("");
   const [stakingAmount, setStakingAmount] = useState("");
   const [stakingOption, setStakingOption] = useState(0);
-  // console.log(stakingAmount);
-  // console.log(stakingOption);
 
+  async function getAllowance() {
+    let result = await lcd.wasm.contractQuery(contracts.token, {
+      allowance: { owner: walletAddress, spender: contracts.stake },
+    });
+    setCurrentAllowance(result.allowance / integer);
+  }
+  async function getStakes() {
+    let result = await lcd.wasm.contractQuery(contracts.stake, {
+      get_data: { address: walletAddress },
+    });
+    setTotalStaked(result.state.total_staked / integer);
+    let userStakeAmount = 0;
+    result.user_stakes.map((item) => {
+      userStakeAmount = userStakeAmount + parseInt(item.amount);
+      setMyStakes(userStakeAmount / integer);
+    });
+    setStakeData(result.user_stakes);
+    console.log(result);
+  }
   useEffect(() => {
     if (connectedWallet) {
-      async function getAllowance() {
-        let result = await lcd.wasm.contractQuery(contracts.token, {
-          allowance: { owner: walletAddress, spender: contracts.stake },
-        });
-        setCurrentAllowance(result.allowance / integer);
-      }
       getAllowance();
-      async function getStakes() {
-        let result = await lcd.wasm.contractQuery(contracts.stake, {
-          get_data: { address: walletAddress },
-        });
-        setTotalStaked(result.state.total_staked / integer);
-        let userStakeAmount = 0;
-        result.user_stakes.map((item) => {
-          userStakeAmount = userStakeAmount + parseInt(item.amount);
-          setMyStakes(userStakeAmount / integer);
-        });
-        setStakeData(result.user_stakes);
-        console.log(result);
-      }
       getStakes();
     }
-  }, [connectedWallet, lcd]);
+  });
 
   function increaseAllowance() {
     const execute = new MsgExecuteContract(
@@ -180,7 +178,7 @@ export default function Stake({ walletAddress }) {
         {
           stake: {
             amount: (stakingAmount * integer).toString(),
-            locked: lock ? 0 : 1,
+            locked: lock ? 1 : 0,
             policy: stakingOption,
           },
         },

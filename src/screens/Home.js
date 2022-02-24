@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import home__section__pic from "../assets/homeSVG.gif";
 import logoBig from "../assets/logoBig.png";
 import roadMapPic from "../assets/roadMapPic.png";
@@ -15,12 +15,11 @@ import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-function FeatureEntry({ svg, title, description }) {
+function FeatureEntry({ svg, title }) {
   return (
     <div className="feature__section__content__entry">
       {svg}
       <div>{title}</div>
-      <p>{description}</p>
     </div>
   );
 }
