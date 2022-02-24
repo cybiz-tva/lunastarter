@@ -24,11 +24,15 @@ export default function Footer() {
             />
           </Link>
           <div className="footer__overlay__content__col__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            totam ratione vero soluta debitis provident maiores.
+            Lunastarter is the world's first tierless launchpad and incubator
+            built on Terra blockchain, powered by COSEM. Terra ecosystem is one
+            of the fastest growing ecosystem. With the release of Columbus-5
+            upgrade, lots of dApps have started favoring Terra. Lunastarter will
+            co-operate with these potentially promising projects to raise funds
+            for their project with the help of community.
           </div>
         </div>
-        <div className="footer__overlay__content__col">
+        {/* <div className="footer__overlay__content__col">
           <div className="footer__overlay__content__col__heading">
             Quicklinks
           </div>
@@ -92,7 +96,7 @@ export default function Footer() {
           >
             Contact Us
           </Link>
-        </div>
+        </div> */}
         <div className="footer__overlay__content__col">
           <div className="footer__overlay__content__col__heading">
             Socail Media
@@ -151,7 +155,7 @@ export default function Footer() {
             Instagram
           </a>
         </div>
-        <div className="footer__overlay__content__col">
+        {/* <div className="footer__overlay__content__col">
           <div className="footer__overlay__content__col__heading">
             Quicklinks
           </div>
@@ -203,9 +207,9 @@ export default function Footer() {
           >
             Terms & Conditions
           </Link>
-        </div>
+        </div> */}
       </div>
-      <div className="footer__conatiner__buttom__border"></div>
+      {/* <div className="footer__conatiner__buttom__border"></div>
       <div className="footer__conatiner__buttom__content">
         <div className="footer__conatiner__buttom__content__left__para">
           &copy; All Rights Reserved 2022
@@ -238,7 +242,7 @@ export default function Footer() {
             Terms & Conditions
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

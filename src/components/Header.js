@@ -46,7 +46,7 @@ function Header({ setWalletAddress }) {
             )}
           </button>
           {wallets.map((item, i) => (
-            <span key={i} style={{ color: "#ffffff" }}>
+            <span key={i} className="header__nav__link__value">
               {item.terraAddress}
             </span>
           ))}
@@ -101,7 +101,9 @@ function Header({ setWalletAddress }) {
             {wallets.map((item) => {
               setWalletAddress(item.terraAddress);
               return (
-                <span style={{ color: "#ffffff" }}>{item.terraAddress}</span>
+                <span className="header__nav__link__value">
+                  {item.terraAddress}
+                </span>
               );
             })}
           </div>
