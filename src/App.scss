@@ -905,8 +905,12 @@ body {
   color: white;
   cursor: pointer;
 }
+
 .stake__table__content__row__entry__button__primary {
   background: linear-gradient(45deg, #6825e6, #a655ba);
+}
+.stake__table__content__row__entry__button__primary:disabled {
+  background: #242424;
 }
 .stake__table__content__row__entry__button__secondary {
   background: linear-gradient(45deg, #3480a1, #26e4cf);

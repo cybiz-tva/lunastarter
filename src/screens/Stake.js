@@ -4,32 +4,39 @@ import { useConnectedWallet, useLCDClient } from "@terra-money/wallet-provider";
 import { MsgExecuteContract } from "@terra-money/terra.js";
 import contracts from "../assets/contracts.json";
 
-function TableRow({ data, connectedWallet, lcd }) {
+function TableRow({ data, connectedWallet, lcd, lock }) {
+  console.log(data);
   let apr = 1;
   if (data.locked === true && data.policy === 0) {
-    apr = 1;
+    apr = "140%";
   } else if (data.locked === true && data.policy === 1) {
-    apr = 2;
+    apr = "280%";
   } else if (data.locked === true && data.policy === 2) {
-    apr = 3;
+    apr = "420%";
   } else if (data.locked === false && data.policy === 0) {
-    apr = 4;
+    apr = "125%";
   } else if (data.locked === false && data.policy === 1) {
-    apr = 5;
+    apr = "250%";
   } else if (data.locked === false && data.policy === 2) {
-    apr = 6;
+    apr = "375%";
   }
   let claim_allowed_time =
     data.claim_allowed_time - (Date.now() / 1000).toFixed();
+  if (claim_allowed_time < 0) {
+    claim_allowed_time = 0;
+  }
   let days = 0;
   let hours = 0;
   let minutes = 0;
+  let seconds = 0;
   if (claim_allowed_time >= 3600 * 24) {
     days = Math.floor(claim_allowed_time / (3600 * 24));
   } else if (claim_allowed_time >= 3600) {
     hours = Math.floor(claim_allowed_time / 3600);
-  } else {
+  } else if (claim_allowed_time >= 60) {
     minutes = Math.floor(claim_allowed_time / 60);
+  } else {
+    seconds = Math.floor(claim_allowed_time);
   }
   function claim() {
     const execute = new MsgExecuteContract(
@@ -65,7 +72,9 @@ function TableRow({ data, connectedWallet, lcd }) {
           ? days + " Days"
           : hours != 0
           ? hours + " Hours"
-          : minutes + " Minutes"}
+          : minutes != 0
+          ? minutes + " Minutes"
+          : seconds + " Seconds"}
       </div>
       <div className="stake__table__content__row__entry">
         {data.reward_amount / 1000000}
@@ -75,6 +84,7 @@ function TableRow({ data, connectedWallet, lcd }) {
         <button
           className="stake__table__content__row__entry__button stake__table__content__row__entry__button__primary"
           onClick={claim}
+          disabled={lock && claim_allowed_time != 0}
         >
           Claim
         </button>
@@ -170,7 +180,7 @@ export default function Stake({ walletAddress }) {
         {
           stake: {
             amount: (stakingAmount * integer).toString(),
-            locked: lock ? 1 : 0,
+            locked: lock ? 0 : 1,
             policy: stakingOption,
           },
         },
@@ -261,6 +271,7 @@ export default function Stake({ walletAddress }) {
                 data={item}
                 connectedWallet={connectedWallet}
                 lcd={lcd}
+                lock={lock}
               />
             ))}
         </div>
