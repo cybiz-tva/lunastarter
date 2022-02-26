@@ -4,8 +4,9 @@ import { useConnectedWallet, useLCDClient } from "@terra-money/wallet-provider";
 import { MsgExecuteContract } from "@terra-money/terra.js";
 import contracts from "../assets/contracts.json";
 
-function TableRow({ data, connectedWallet, lcd, lock }) {
-  console.log(data);
+function TableRow({ data, connectedWallet, lock, getStakes, getAllowance }) {
+  // console.log(data);
+  const [disable, setDisable] = useState(false);
   let apr = "40%";
   if (data.locked === true && data.policy === 0) {
     apr = "40%";
@@ -39,21 +40,33 @@ function TableRow({ data, connectedWallet, lcd, lock }) {
     seconds = Math.floor(claim_allowed_time);
   }
   function claim() {
-    const execute = new MsgExecuteContract(
-      connectedWallet.walletAddress,
-      contracts.stake,
-      {
-        claim: {
-          index: data.index,
-        },
-      },
-      {}
-    );
-    const executeTx = connectedWallet.post({
-      msgs: [execute],
-    });
-    const executeTxResult = lcd.tx.broadcast(executeTx);
-    console.log(executeTxResult);
+    connectedWallet
+      .post({
+        msgs: [
+          new MsgExecuteContract(
+            connectedWallet.walletAddress,
+            contracts.stake,
+            {
+              claim: {
+                index: data.index,
+              },
+            },
+            {}
+          ),
+        ],
+      })
+      .then(() => {
+        setDisable(true);
+        setTimeout(() => {
+          getAllowance();
+          getStakes();
+          console.log("claim");
+          setDisable(false);
+        }, 10000);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   return (
     <div className="stake__table__content__row">
@@ -84,7 +97,7 @@ function TableRow({ data, connectedWallet, lcd, lock }) {
         <button
           className="stake__table__content__row__entry__button stake__table__content__row__entry__button__primary"
           onClick={claim}
-          disabled={lock && claim_allowed_time != 0}
+          disabled={disable ? true : lock && claim_allowed_time != 0}
         >
           Claim
         </button>
@@ -105,12 +118,14 @@ export default function Stake({ walletAddress }) {
   const [allowanceAmount, setAllowanceAmount] = useState("");
   const [stakingAmount, setStakingAmount] = useState("");
   const [stakingOption, setStakingOption] = useState(0);
+  const [disable, setDisable] = useState(false);
 
   async function getAllowance() {
     let result = await lcd.wasm.contractQuery(contracts.token, {
       allowance: { owner: walletAddress, spender: contracts.stake },
     });
     setCurrentAllowance(result.allowance / integer);
+    console.log(result.allowance / integer);
   }
   async function getStakes() {
     let result = await lcd.wasm.contractQuery(contracts.stake, {
@@ -118,7 +133,7 @@ export default function Stake({ walletAddress }) {
     });
     setTotalStaked(result.state.total_staked / integer);
     let userStakeAmount = 0;
-    result.user_stakes.map((item) => {
+    result.user_stakes.map((item, i) => {
       userStakeAmount = userStakeAmount + parseInt(item.amount);
       setMyStakes(userStakeAmount / integer);
     });
@@ -130,65 +145,106 @@ export default function Stake({ walletAddress }) {
       getAllowance();
       getStakes();
     }
-  });
+  }, []);
 
   function increaseAllowance() {
-    const execute = new MsgExecuteContract(
-      connectedWallet.walletAddress,
-      contracts.token,
-      {
-        increase_allowance: {
-          spender: contracts.stake,
-          amount: (allowanceAmount * integer).toString(),
-        },
-      },
-      {}
-    );
-    const executeTx = connectedWallet.post({
-      msgs: [execute],
-    });
-    const executeTxResult = lcd.tx.broadcast(executeTx);
-    console.log(executeTxResult);
+    connectedWallet
+      .post({
+        msgs: [
+          new MsgExecuteContract(
+            connectedWallet.walletAddress,
+            contracts.token,
+            {
+              increase_allowance: {
+                spender: contracts.stake,
+                amount: (allowanceAmount * integer).toString(),
+              },
+            },
+            {}
+          ),
+        ],
+      })
+      .then(() => {
+        setDisable(true);
+        setTimeout(() => {
+          getAllowance();
+          getStakes();
+          console.log("increaseAllowance");
+          setDisable(false);
+        }, 10000);
+      })
+      .catch((err) => {
+        console.log(err);
+        setDisable(false);
+      });
   }
   function decreaseAllowance() {
-    const execute = new MsgExecuteContract(
-      connectedWallet.walletAddress,
-      contracts.token,
-      {
-        decrease_allowance: {
-          spender: contracts.stake,
-          amount: (allowanceAmount * integer).toString(),
-        },
-      },
-      {}
-    );
-    const executeTx = connectedWallet.post({
-      msgs: [execute],
-    });
-    const executeTxResult = lcd.tx.broadcast(executeTx);
-    console.log(executeTxResult);
+    connectedWallet
+      .post({
+        msgs: [
+          new MsgExecuteContract(
+            connectedWallet.walletAddress,
+            contracts.token,
+            {
+              decrease_allowance: {
+                spender: contracts.stake,
+                amount: (allowanceAmount * integer).toString(),
+              },
+            },
+            {}
+          ),
+        ],
+      })
+      .then(() => {
+        setDisable(true);
+        setTimeout(() => {
+          getAllowance();
+          getStakes();
+          console.log("decreaseAllowance");
+          setDisable(false);
+        }, 10000);
+      })
+      .catch((err) => {
+        console.log(err);
+        setDisable(false);
+      });
   }
-  function stake(e) {
+  async function stake(e) {
+    e.preventDefault();
+
     if (stakingAmount > currentAllowance) {
       setAllowanceAmount(stakingAmount - currentAllowance);
     } else {
-      const execute = new MsgExecuteContract(
-        connectedWallet.walletAddress,
-        contracts.stake,
-        {
-          stake: {
-            amount: (stakingAmount * integer).toString(),
-            locked: lock ? 1 : 0,
-            policy: stakingOption,
-          },
-        },
-        {}
-      );
-      const executeTx = connectedWallet.post({
-        msgs: [execute],
-      });
-      const executeTxResult = lcd.tx.broadcast(executeTx);
-      console.log("this works");
+      connectedWallet
+        .post({
+          msgs: [
+            new MsgExecuteContract(
+              connectedWallet.walletAddress,
+              contracts.stake,
+              {
+                stake: {
+                  amount: (stakingAmount * integer).toString(),
+                  locked: lock ? 1 : 0,
+                  policy: stakingOption,
+                },
+              },
+              {}
+            ),
+          ],
+        })
+        .then(() => {
+          setDisable(true);
+          setTimeout(() => {
+            getAllowance();
+            getStakes();
+            console.log("stake");
+            setDisable(false);
+          }, 10000);
+        })
+        .catch((err) => {
+          console.log(err);
+          setDisable(false);
+        });
     }
   }
   return (
@@ -270,6 +326,8 @@ export default function Stake({ walletAddress }) {
                 connectedWallet={connectedWallet}
                 lcd={lcd}
                 lock={lock}
+                getStakes={getStakes}
+                getAllowance={getAllowance}
               />
             ))}
         </div>
@@ -298,23 +356,20 @@ export default function Stake({ walletAddress }) {
           <button
             className="allowance__form__buttons__primary"
             onClick={decreaseAllowance}
+            disabled={disable}
           >
             Decrease Allowance
           </button>
           <button
             className="allowance__form__buttons__secondary"
             onClick={increaseAllowance}
+            disabled={disable}
           >
             Increase Allowance
           </button>
         </div>
       </form>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-        className="allowance__form"
-      >
+      <form onSubmit={stake} className="allowance__form">
         <div className="allowance__form__heading">STAKING</div>
         <input
           type="number"
@@ -379,7 +434,7 @@ export default function Stake({ walletAddress }) {
         <div className="allowance__form__buttons">
           <button
             className="allowance__form__buttons__secondary"
-            onClick={stake}
+            disabled={disable}
           >
             Stake
           </button>

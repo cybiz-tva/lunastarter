@@ -7,6 +7,7 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -214,6 +215,7 @@ body {
   font-weight: 500;
   color: var(--color);
   border: none;
+  text-decoration: none;
 }
 
 .home__section__buttons__btn:before {
@@ -390,7 +392,8 @@ body {
 }
 .road__map__section__img {
   width: 100%;
-  max-width: 700px;
+  max-width: 1000px;
+  user-select: none;
 }
 .road__map__section__bottom {
   font-size: 40px;
@@ -539,7 +542,7 @@ body {
 .footer__conatiner {
   width: 100%;
   height: fit-content;
-  padding: 6em 1em;
+  padding: 0em 1em;
   min-height: 350px;
   background: #ffffff;
   display: flex;
@@ -783,6 +786,13 @@ body {
   font-size: 14px;
   border-radius: 8px;
   margin-right: 0.5em;
+  cursor: pointer;
+}
+.allowance__form__buttons__primary:disabled {
+  background: #242424;
+}
+.allowance__form__buttons__primary:disabled:hover {
+  box-shadow: none;
 }
 .allowance__form__buttons__secondary {
   padding: 0.7em 1.5em;
@@ -793,6 +803,14 @@ body {
   border-radius: 8px;
   margin-right: 0.5em;
   min-width: 200px;
+  cursor: pointer;
+}
+
+.allowance__form__buttons__secondary:disabled {
+  background: #242424;
+}
+.allowance__form__buttons__secondary:disabled:hover {
+  box-shadow: none;
 }
 .allowance__form__duration {
   display: flex;
@@ -1061,7 +1079,7 @@ body {
     padding: 0em 1em;
   }
   .road__map__section__img {
-    max-width: 300px;
+    max-width: 100%;
   }
   .road__map__section__bottom {
     position: relative;

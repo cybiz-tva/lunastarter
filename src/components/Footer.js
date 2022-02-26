@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Facebook, Instagram, Twitter, Youtube } from "react-feather";
 import { Link } from "react-router-dom";
 import logoDark from "../assets/logoDark.png";
 
 export default function Footer() {
   return (
-    <div className="footer__conatiner">
+    <section id="footer" className="footer__conatiner">
       <div className="footer__conatiner__content">
         <div className="footer__overlay__content__col">
           <Link
@@ -32,217 +33,66 @@ export default function Footer() {
             for their project with the help of community.
           </div>
         </div>
-        {/* <div className="footer__overlay__content__col">
-          <div className="footer__overlay__content__col__heading">
-            Quicklinks
-          </div>
-          <Link
-            to="/"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            About
-          </Link>
-          <Link
-            to="/"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Buy Now
-          </Link>
-          <Link
-            to="/"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Governece
-          </Link>
-          <Link
-            to="/"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Whitepaper
-          </Link>
-          <Link
-            to="/"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Contact Us
-          </Link>
-        </div> */}
+
         <div className="footer__overlay__content__col">
           <div className="footer__overlay__content__col__heading">
-            Socail Media
+            Social Links
           </div>
-          <a href="#about" className="footer__overlay__content__col__entry">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="11.186"
-              height="21.42"
-              viewBox="0 0 11.186 21.42"
-            >
-              <path
-                id="Path_11"
-                data-name="Path 11"
-                d="M87.259,21.421V11.662h3.332l.476-3.808H87.259V5.474c0-1.071.357-1.9,1.9-1.9h2.023V.119C90.71.119,89.52,0,88.211,0c-2.856,0-4.879,1.785-4.879,5V7.854H80v3.808h3.332v9.758Z"
-                transform="translate(-80)"
-                fill="#131313"
-                fillRule="evenodd"
-              />
-            </svg>
+          <a
+            href="https://www.facebook.com/Lunastarter-104944465439150"
+            className="footer__overlay__content__col__entry"
+          >
+            <Facebook
+              size={20}
+              color="currentColor"
+              style={{ marginRight: 10 }}
+            />
             Facebook
           </a>
-          <a href="#about" className="footer__overlay__content__col__entry">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="21.421"
-              height="17.375"
-              viewBox="0 0 21.421 17.375"
-            >
-              <path
-                id="Path_12"
-                data-name="Path 12"
-                d="M44.783,19.374a12.384,12.384,0,0,0,12.5-12.5v-.6a9.673,9.673,0,0,0,2.142-2.261,9.879,9.879,0,0,1-2.5.714,4.63,4.63,0,0,0,1.9-2.38,10.915,10.915,0,0,1-2.737,1.071A4.25,4.25,0,0,0,52.875,2a4.471,4.471,0,0,0-4.4,4.4,2.32,2.32,0,0,0,.119.952,12.3,12.3,0,0,1-9.044-4.641,4.557,4.557,0,0,0-.6,2.261,4.728,4.728,0,0,0,1.9,3.689,4.012,4.012,0,0,1-2.023-.6h0a4.349,4.349,0,0,0,3.57,4.284,3.669,3.669,0,0,1-1.19.119,2.025,2.025,0,0,1-.833-.119,4.508,4.508,0,0,0,4.165,3.094,8.985,8.985,0,0,1-5.474,1.9A3.3,3.3,0,0,1,38,17.232a11.232,11.232,0,0,0,6.783,2.142"
-                transform="translate(-38 -2)"
-                fill="#131313"
-                fillRule="evenodd"
-              />
-            </svg>
+          <a
+            href="https://twitter.com/lunastarter_io"
+            className="footer__overlay__content__col__entry"
+          >
+            <Twitter
+              size={20}
+              color="currentColor"
+              style={{ marginRight: 10 }}
+            />
             Twitter
           </a>
-          <a href="#about" className="footer__overlay__content__col__entry">
+          <a
+            href="https://discord.gg/KyDCDE9xDC"
+            className="footer__overlay__content__col__entry"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="21.421"
-              height="21.42"
-              viewBox="0 0 21.421 21.42"
+              width="31.5"
+              height="36"
+              fill="currentColor"
+              style={{ marginRight: 10 }}
+              viewBox="0 0 31.5 36"
             >
               <path
-                id="Path_13"
-                data-name="Path 13"
-                d="M10.71,1.9a32.84,32.84,0,0,1,4.284.119,5.52,5.52,0,0,1,2.023.357A4.179,4.179,0,0,1,19.04,4.4,5.52,5.52,0,0,1,19.4,6.426c0,1.071.119,1.428.119,4.284a32.84,32.84,0,0,1-.119,4.284,5.52,5.52,0,0,1-.357,2.023,4.179,4.179,0,0,1-2.023,2.023,5.52,5.52,0,0,1-2.023.357c-1.071,0-1.428.119-4.284.119A32.84,32.84,0,0,1,6.426,19.4,5.52,5.52,0,0,1,4.4,19.04,4.179,4.179,0,0,1,2.38,17.017a5.52,5.52,0,0,1-.357-2.023c0-1.071-.119-1.428-.119-4.284a32.84,32.84,0,0,1,.119-4.284A5.52,5.52,0,0,1,2.38,4.4a4.274,4.274,0,0,1,.833-1.19A2.012,2.012,0,0,1,4.4,2.38a5.52,5.52,0,0,1,2.023-.357A32.84,32.84,0,0,1,10.71,1.9m0-1.9a35.162,35.162,0,0,0-4.4.119A7.347,7.347,0,0,0,3.689.6a4.659,4.659,0,0,0-1.9,1.19A4.659,4.659,0,0,0,.6,3.689,5.422,5.422,0,0,0,.119,6.307,35.162,35.162,0,0,0,0,10.71a35.162,35.162,0,0,0,.119,4.4A7.347,7.347,0,0,0,.6,17.731a4.659,4.659,0,0,0,1.19,1.9,4.659,4.659,0,0,0,1.9,1.19,7.347,7.347,0,0,0,2.618.476,35.162,35.162,0,0,0,4.4.119,35.162,35.162,0,0,0,4.4-.119,7.347,7.347,0,0,0,2.618-.476,4.993,4.993,0,0,0,3.094-3.094,7.347,7.347,0,0,0,.476-2.618c0-1.19.119-1.547.119-4.4a35.162,35.162,0,0,0-.119-4.4,7.347,7.347,0,0,0-.476-2.618,4.659,4.659,0,0,0-1.19-1.9A4.659,4.659,0,0,0,17.731.6,7.347,7.347,0,0,0,15.113.119,35.162,35.162,0,0,0,10.71,0m0,5.236A5.386,5.386,0,0,0,5.236,10.71,5.474,5.474,0,1,0,10.71,5.236m0,9.044a3.506,3.506,0,0,1-3.57-3.57,3.506,3.506,0,0,1,3.57-3.57,3.506,3.506,0,0,1,3.57,3.57,3.506,3.506,0,0,1-3.57,3.57M16.422,3.689A1.309,1.309,0,1,0,17.731,5a1.321,1.321,0,0,0-1.309-1.309"
-                fill="#131313"
-                fillRule="evenodd"
+                id="Icon_awesome-discord"
+                data-name="Icon awesome-discord"
+                d="M20.9,17.1a1.843,1.843,0,1,1-1.836-2A1.918,1.918,0,0,1,20.9,17.1Zm-8.406-2a2.005,2.005,0,0,0,0,4,1.918,1.918,0,0,0,1.836-2A1.906,1.906,0,0,0,12.492,15.1ZM31.5,3.708V36c-4.535-4.007-3.084-2.681-8.352-7.578l.954,3.33H3.69A3.7,3.7,0,0,1,0,28.044V3.708A3.7,3.7,0,0,1,3.69,0H27.81A3.7,3.7,0,0,1,31.5,3.708ZM26.37,20.772a24.1,24.1,0,0,0-2.592-10.494,8.9,8.9,0,0,0-5.058-1.89l-.252.288a11.979,11.979,0,0,1,4.482,2.286A15.294,15.294,0,0,0,9.5,10.44c-.666.306-1.062.522-1.062.522A12.143,12.143,0,0,1,13.176,8.6L13,8.388a8.9,8.9,0,0,0-5.058,1.89A24.1,24.1,0,0,0,5.346,20.772a6.526,6.526,0,0,0,5.49,2.736s.666-.81,1.206-1.494a5.6,5.6,0,0,1-3.15-2.124c.265.185.7.426.738.45a13.121,13.121,0,0,0,11.232.63,10.3,10.3,0,0,0,2.07-1.062,5.68,5.68,0,0,1-3.258,2.142c.54.684,1.188,1.458,1.188,1.458A6.58,6.58,0,0,0,26.37,20.772Z"
               />
             </svg>
-            Instagram
+            Discord
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UC2bJpRyq4Mcxl9u6n8ooBNw"
+            className="footer__overlay__content__col__entry"
+          >
+            <Youtube
+              size={20}
+              color="currentColor"
+              style={{ marginRight: 10 }}
+            />
+            YouTube
           </a>
         </div>
-        {/* <div className="footer__overlay__content__col">
-          <div className="footer__overlay__content__col__heading">
-            Quicklinks
-          </div>
-          <Link
-            to="/"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about-us"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            About Us
-          </Link>
-          <Link
-            to="/services"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            to="/portfolio"
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Terms & Conditions
-          </Link>
-        </div> */}
       </div>
-      {/* <div className="footer__conatiner__buttom__border"></div>
-      <div className="footer__conatiner__buttom__content">
-        <div className="footer__conatiner__buttom__content__left__para">
-          &copy; All Rights Reserved 2022
-        </div>
-        <div className="footer__conatiner__buttom__content__right__para">
-          <Link
-            to="/"
-            style={{ marginRight: "2em", fontWeight: "bold" }}
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            to="/"
-            style={{ fontWeight: "bold" }}
-            className="footer__overlay__content__col__entry"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            Terms & Conditions
-          </Link>
-        </div>
-      </div> */}
-    </div>
+    </section>
   );
 }

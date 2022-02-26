@@ -20,7 +20,8 @@ function Header({ setWalletAddress }) {
       }
     });
   }, []);
-  const { status, wallets, availableConnections, connect } = useWallet();
+  const { status, wallets, availableConnections, connect, disconnect } =
+    useWallet();
 
   return (
     <div className="header">
@@ -29,9 +30,6 @@ function Header({ setWalletAddress }) {
           <img src={logo} alt="logo" className="header__logo" />
         </Link>
 
-        {/* {status === WalletStatus.WALLET_CONNECTED && (
-          <button onClick={() => disconnect()}>Disconnect</button>
-        )} */}
         <div className="header__btns">
           <button
             className="header__menu"
@@ -45,11 +43,6 @@ function Header({ setWalletAddress }) {
               <Menu size={20} color="currentColor" />
             )}
           </button>
-          {wallets.map((item, i) => (
-            <span key={i} className="header__nav__link__value">
-              {item.terraAddress}
-            </span>
-          ))}
 
           {status === WalletStatus.WALLET_NOT_CONNECTED && (
             <>
@@ -67,21 +60,51 @@ function Header({ setWalletAddress }) {
                 ))}
             </>
           )}
+          {status === WalletStatus.WALLET_CONNECTED && (
+            <button
+              className="header__nav__link__btn"
+              onClick={() => disconnect()}
+            >
+              <span>Disconnect Wallet</span>
+              <div class="liquid"></div>
+            </button>
+          )}
         </div>
         {isNavOpen ? (
           <div className="header__nav">
-            <a href="#" className="header__nav__link">
+            <Link
+              to="/"
+              onClick={() => {
+                setTimeout(() => {
+                  document.getElementById("about__section").scrollIntoView();
+                }, 300);
+              }}
+              className="header__nav__link"
+            >
               About
-            </a>
-            <a href="#" className="header__nav__link">
-              Buy Now
-            </a>
+            </Link>
+
             <Link to="/stake" className="header__nav__link">
               Stake
             </Link>
-            <a href="#" className="header__nav__link">
+            <a
+              href="https://docs.lunastarter.io"
+              target="_blank"
+              className="header__nav__link"
+            >
               Whitepaper
             </a>
+            <Link
+              to="/"
+              onClick={() => {
+                setTimeout(() => {
+                  document.getElementById("footer").scrollIntoView();
+                }, 300);
+              }}
+              className="header__nav__link"
+            >
+              Social Links
+            </Link>
             {status === WalletStatus.WALLET_NOT_CONNECTED && (
               <>
                 {availableConnections
@@ -98,14 +121,15 @@ function Header({ setWalletAddress }) {
                   ))}
               </>
             )}
-            {wallets.map((item) => {
-              setWalletAddress(item.terraAddress);
-              return (
-                <span className="header__nav__link__value">
-                  {item.terraAddress}
-                </span>
-              );
-            })}
+            {status === WalletStatus.WALLET_CONNECTED && (
+              <button
+                className="header__nav__link__btn"
+                onClick={() => disconnect()}
+              >
+                <span>Disconnect Wallet</span>
+                <div class="liquid"></div>
+              </button>
+            )}
           </div>
         ) : null}
       </div>
