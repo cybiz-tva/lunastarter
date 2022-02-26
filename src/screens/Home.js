@@ -57,10 +57,11 @@ function TeamCard({ image }) {
   );
 }
 
-function Home() {
+function Home({ setWalletAddress, setIsOn }) {
   const navigate = useNavigate();
   const [slidesPerView, setSlidesPerView] = useState(6);
   useEffect(() => {
+    setIsOn("home");
     if (window.innerWidth <= 400) {
       setSlidesPerView(1);
     }
@@ -105,7 +106,7 @@ function Home() {
           First tierless launchpad and incubator on Terra
         </div>
         {wallets.map((item, i) => {
-          // setWalletAddress(item.terraAddress);
+          setWalletAddress(item.terraAddress);
           return (
             <span
               key={i}

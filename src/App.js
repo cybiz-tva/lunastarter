@@ -8,15 +8,21 @@ import Stake from "./screens/Stake";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
+  const [isOn, setIsOn] = useState("home");
   return (
     <>
-      <Header setWalletAddress={setWalletAddress} />
+      <Header setWalletAddress={setWalletAddress} isOn={isOn} />
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home setWalletAddress={setWalletAddress} setIsOn={setIsOn} />
+            }
+          />
           <Route
             path="/stake"
-            element={<Stake walletAddress={walletAddress} />}
+            element={<Stake walletAddress={walletAddress} setIsOn={setIsOn} />}
           />
         </Routes>
       </div>

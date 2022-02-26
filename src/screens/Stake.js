@@ -66,6 +66,7 @@ function TableRow({ data, connectedWallet, lock, getStakes, getAllowance }) {
       })
       .catch((err) => {
         console.log(err);
+        setDisable(false);
       });
   }
   return (
@@ -105,7 +106,7 @@ function TableRow({ data, connectedWallet, lock, getStakes, getAllowance }) {
     </div>
   );
 }
-export default function Stake({ walletAddress }) {
+export default function Stake({ walletAddress, setIsOn }) {
   const integer = 1000000;
   const lcd = useLCDClient();
   const connectedWallet = useConnectedWallet();
@@ -126,6 +127,9 @@ export default function Stake({ walletAddress }) {
     });
     setCurrentAllowance(result.allowance / integer);
     console.log(result.allowance / integer);
+    console.log(
+      `allowance: { owner: ${walletAddress}, spender: ${contracts.stake} },`
+    );
   }
   async function getStakes() {
     let result = await lcd.wasm.contractQuery(contracts.stake, {
@@ -145,6 +149,7 @@ export default function Stake({ walletAddress }) {
       getAllowance();
       getStakes();
     }
+    setIsOn("stake");
   }, []);
 
   function increaseAllowance() {
@@ -211,9 +216,11 @@ export default function Stake({ walletAddress }) {
   }
   async function stake(e) {
     e.preventDefault();
-
+    console.log(stakingAmount);
     if (stakingAmount > currentAllowance) {
       setAllowanceAmount(stakingAmount - currentAllowance);
+    } else if (stakingAmount === "0") {
+      alert("Stake value cant be 0");
     } else {
       connectedWallet
         .post({

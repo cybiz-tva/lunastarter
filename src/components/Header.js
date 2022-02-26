@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useWallet, WalletStatus } from "@terra-money/wallet-provider";
 
-function Header({ setWalletAddress }) {
+function Header({ isOn }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     if (window.innerWidth < 1000) {
       setIsNavOpen(false);
@@ -52,10 +53,18 @@ function Header({ setWalletAddress }) {
                   <button
                     className="header__nav__link__btn"
                     key={"connection-" + type + identifier}
-                    onClick={() => connect(type, identifier)}
+                    onClick={() => {
+                      connect(type, identifier);
+                      if (isOn === "stake") {
+                        navigate("/");
+                        setTimeout(() => {
+                          navigate("/stake");
+                        }, 1000);
+                      }
+                    }}
                   >
                     <span>Connect Wallet</span>
-                    <div class="liquid"></div>
+                    <div className="liquid"></div>
                   </button>
                 ))}
             </>
@@ -66,7 +75,7 @@ function Header({ setWalletAddress }) {
               onClick={() => disconnect()}
             >
               <span>Disconnect Wallet</span>
-              <div class="liquid"></div>
+              <div className="liquid"></div>
             </button>
           )}
         </div>
@@ -113,10 +122,18 @@ function Header({ setWalletAddress }) {
                     <button
                       className="header__nav__link__btn"
                       key={"connection-" + type + identifier}
-                      onClick={() => connect(type, identifier)}
+                      onClick={() => {
+                        connect(type, identifier);
+                        if (isOn === "stake") {
+                          navigate("/");
+                          setTimeout(() => {
+                            navigate("/stake");
+                          }, 1000);
+                        }
+                      }}
                     >
                       <span>Connect Wallet</span>
-                      <div class="liquid"></div>
+                      <div className="liquid"></div>
                     </button>
                   ))}
               </>
@@ -127,7 +144,7 @@ function Header({ setWalletAddress }) {
                 onClick={() => disconnect()}
               >
                 <span>Disconnect Wallet</span>
-                <div class="liquid"></div>
+                <div className="liquid"></div>
               </button>
             )}
           </div>
