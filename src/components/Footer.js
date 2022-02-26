@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Facebook, Instagram, Twitter, Youtube } from "react-feather";
+import { Facebook, Twitter, Youtube } from "react-feather";
 import { Link } from "react-router-dom";
 import logoDark from "../assets/logoDark.png";
 
@@ -21,23 +20,17 @@ export default function Footer() {
             <img
               src={logoDark}
               alt="logoDark"
+              style={{ width: 350 }}
               className="footer__overlay__content__col__img"
             />
           </Link>
           <div className="footer__overlay__content__col__text">
             Lunastarter is the world's first tierless launchpad and incubator
-            built on Terra blockchain, powered by COSEM. Terra ecosystem is one
-            of the fastest growing ecosystem. With the release of Columbus-5
-            upgrade, lots of dApps have started favoring Terra. Lunastarter will
-            co-operate with these potentially promising projects to raise funds
-            for their project with the help of community.
+            built on Terra blockchain.
           </div>
         </div>
 
         <div className="footer__overlay__content__col">
-          <div className="footer__overlay__content__col__heading">
-            Social Links
-          </div>
           <a
             href="https://www.facebook.com/Lunastarter-104944465439150"
             className="footer__overlay__content__col__entry"

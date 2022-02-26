@@ -565,7 +565,7 @@ body {
   flex-direction: column;
 }
 .footer__overlay__content__col:last-child {
-  max-width: 25%;
+  flex-direction: row;
 }
 .footer__overlay__content__col__heading {
   font-size: 18px;
@@ -575,15 +575,15 @@ body {
 }
 .footer__overlay__content__col__entry {
   color: #0c0e17;
-  margin-bottom: 1em;
+  margin-right: 1em;
   text-decoration: none;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 .footer__overlay__content__col__entry svg {
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
   margin-right: 1em;
 }
 .footer__overlay__content__col__entry:hover {
@@ -594,7 +594,7 @@ body {
   width: 180px;
 }
 .footer__overlay__content__col__text {
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 2em;
   width: 90%;
 }
