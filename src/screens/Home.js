@@ -732,11 +732,7 @@ function Home({ setWalletAddress, setIsOn }) {
               <TeamCard
                 image={teamImg1}
                 name="Hammad Habib"
-                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five
-                centuries"
+                designation="Designer"
                 facebook=""
                 instagram=""
                 linkedin=""
@@ -746,11 +742,7 @@ function Home({ setWalletAddress, setIsOn }) {
               <TeamCard
                 image={teamImg2}
                 name="Mehfooz-ur-Rehman"
-                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five
-                centuries"
+                designation="Developer"
                 facebook=""
                 instagram=""
                 linkedin=""
@@ -759,12 +751,8 @@ function Home({ setWalletAddress, setIsOn }) {
             <SwiperSlide>
               <TeamCard
                 image={teamImg3}
-                name="Muhammad Abdullah"
-                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five
-                centuries"
+                name="M. Abdullah Shahid"
+                designation="Developer"
                 facebook=""
                 instagram=""
                 linkedin=""
@@ -773,12 +761,8 @@ function Home({ setWalletAddress, setIsOn }) {
             <SwiperSlide>
               <TeamCard
                 image={teamImg4}
-                name="John Doe"
-                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five
-                centuries"
+                name="Ameer A. Khammas"
+                designation="Marketing Lead"
                 facebook=""
                 instagram=""
                 linkedin=""
@@ -787,12 +771,8 @@ function Home({ setWalletAddress, setIsOn }) {
             <SwiperSlide>
               <TeamCard
                 image={teamImg5}
-                name="John Doe"
-                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five
-                centuries"
+                name="Md Asfar"
+                designation="COO"
                 facebook=""
                 instagram=""
                 linkedin=""
@@ -801,12 +781,8 @@ function Home({ setWalletAddress, setIsOn }) {
             <SwiperSlide>
               <TeamCard
                 image={teamImg6}
-                name="John Doe"
-                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five
-                centuries"
+                name="Mustafa Tahseen"
+                designation="CMO"
                 facebook=""
                 instagram=""
                 linkedin=""
@@ -815,12 +791,8 @@ function Home({ setWalletAddress, setIsOn }) {
             <SwiperSlide>
               <TeamCard
                 image={teamImg7}
-                name="John Doe"
-                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five
-                centuries"
+                name="Muzammil Haider"
+                designation="CEO"
                 facebook=""
                 instagram=""
                 linkedin=""
