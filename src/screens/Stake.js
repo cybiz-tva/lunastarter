@@ -100,7 +100,7 @@ function TableRow({ data, connectedWallet, lock, getStakes, getAllowance }) {
           onClick={claim}
           disabled={disable ? true : lock && claim_allowed_time != 0}
         >
-          Claim
+          {lock === false && claim_allowed_time != 0 ? "Withdraw" : "Claim"}
         </button>
       </div>
     </div>
@@ -120,17 +120,27 @@ export default function Stake({ walletAddress, setIsOn }) {
   const [stakingAmount, setStakingAmount] = useState("");
   const [stakingOption, setStakingOption] = useState(0);
   const [disable, setDisable] = useState(false);
+  const [lst, setLst] = useState(0);
 
+  async function getLST() {
+    let result = await lcd.wasm.contractQuery(contracts.token, {
+      balance: { address: walletAddress },
+    });
+    setLst(result.balance / integer);
+    console.log(result.balance / integer);
+  }
   async function getAllowance() {
     let result = await lcd.wasm.contractQuery(contracts.token, {
       allowance: { owner: walletAddress, spender: contracts.stake },
     });
     setCurrentAllowance(result.allowance / integer);
     console.log(result.allowance / integer);
+    getLST();
     console.log(
       `allowance: { owner: ${walletAddress}, spender: ${contracts.stake} },`
     );
   }
+
   async function getStakes() {
     let result = await lcd.wasm.contractQuery(contracts.stake, {
       get_data: { address: walletAddress },
@@ -259,6 +269,12 @@ export default function Stake({ walletAddress, setIsOn }) {
       <div className="stake__home__section">
         <div className="stake__home__section__heading">staking dashboard</div>
         <div className="stake__home__section__cards">
+          <div className="stake__home__section__card stake__home__section__card__new">
+            <div className="stake__home__section__card__heading">{lst}</div>
+            <div className="stake__home__section__card__sub__heading">
+              My LST
+            </div>
+          </div>
           <div className="stake__home__section__card stake__home__section__card__primary">
             <div className="stake__home__section__card__heading">
               {totalStaked}

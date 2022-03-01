@@ -12,6 +12,7 @@ import Iconpaymentapplepay from "../assets/Icon payment-apple-pay.png";
 import Iconsimplesamsung from "../assets/Icon simple-samsung.png";
 import { Facebook, Instagram, Linkedin } from "react-feather";
 import { useNavigate } from "react-router-dom";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useWallet } from "@terra-money/wallet-provider";
@@ -24,7 +25,7 @@ function FeatureEntry({ svg, title }) {
     </div>
   );
 }
-function TeamCard({ image }) {
+function TeamCard({ image, name, designation, facebook, instagram, linkedin }) {
   return (
     <div className="team__section__content__entry">
       <img
@@ -33,25 +34,30 @@ function TeamCard({ image }) {
         className="team__section__content__entry__img"
       />
       <div className="team__section__content__entry__link">
-        <a href="#" className="team__section__content__entry__link__entry">
+        <a
+          href={facebook}
+          className="team__section__content__entry__link__entry"
+        >
           <Facebook size={20} color="currentColor" />
         </a>
-        <a href="#" className="team__section__content__entry__link__entry">
+        <a
+          href={instagram}
+          className="team__section__content__entry__link__entry"
+        >
           <Instagram size={20} color="currentColor" />
         </a>
-        <a href="#" className="team__section__content__entry__link__entry">
+        <a
+          href={linkedin}
+          className="team__section__content__entry__link__entry"
+        >
           <Linkedin size={20} color="currentColor" />
         </a>
       </div>
       <div className="team__section__content__entry__content__heading">
-        John Doe
+        {name}
       </div>
       <div className="team__section__content__entry__content">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries
+        {designation}
       </div>
     </div>
   );
@@ -60,36 +66,48 @@ function TeamCard({ image }) {
 function Home({ setWalletAddress, setIsOn }) {
   const navigate = useNavigate();
   const [slidesPerView, setSlidesPerView] = useState(6);
+  const [teamsPerView, setTeamsPerView] = useState(4);
+  SwiperCore.use([Autoplay]);
   useEffect(() => {
     setIsOn("home");
     if (window.innerWidth <= 400) {
       setSlidesPerView(1);
-    }
-    if (window.innerWidth <= 550) {
+      setTeamsPerView(1);
+    } else if (window.innerWidth <= 550) {
       setSlidesPerView(2);
+      setTeamsPerView(2);
     } else if (window.innerWidth <= 900) {
       setSlidesPerView(3);
+      setTeamsPerView(3);
     } else if (window.innerWidth <= 1360) {
       setSlidesPerView(4);
+      setTeamsPerView(4);
     } else if (window.innerWidth <= 1440) {
       setSlidesPerView(5);
+      setTeamsPerView(4);
     } else {
       setSlidesPerView(6);
+      setTeamsPerView(4);
     }
     window.addEventListener("resize", () => {
       if (window.innerWidth <= 400) {
         setSlidesPerView(1);
-      }
-      if (window.innerWidth <= 550) {
+        setTeamsPerView(1);
+      } else if (window.innerWidth <= 550) {
         setSlidesPerView(2);
+        setTeamsPerView(1);
       } else if (window.innerWidth <= 900) {
         setSlidesPerView(3);
+        setTeamsPerView(2);
       } else if (window.innerWidth <= 1360) {
         setSlidesPerView(4);
+        setTeamsPerView(4);
       } else if (window.innerWidth <= 1440) {
         setSlidesPerView(5);
+        setTeamsPerView(4);
       } else {
         setSlidesPerView(6);
+        setTeamsPerView(4);
       }
     });
   }, [window.innerWidth]);
@@ -695,15 +713,133 @@ function Home({ setWalletAddress, setIsOn }) {
         />
         <div className="road__map__section__bottom">Road Map</div>
       </div>
-      {/* <div className="team__section">
+      <div className="team__section">
         <div className="feature__section__heading">OUR TEAM</div>
         <div className="team__section__content">
-          <TeamCard image={teamImg1} />
-          <TeamCard image={teamImg2} />
-          <TeamCard image={teamImg3} />
-          <TeamCard image={teamImg4} />
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={teamsPerView}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: true,
+            }}
+          >
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="John Doe"
+                designation="Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five
+                centuries"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
-      </div> */}
+      </div>
       {/* <div className="partner__section">
         <div className="feature__section__heading">Our Partners</div>
         <div className="partner__section__content">
@@ -711,7 +847,10 @@ function Home({ setWalletAddress, setIsOn }) {
             spaceBetween={50}
             slidesPerView={slidesPerView}
             loop={true}
-            autoplay={3000}
+            autoplay={{
+              delay: 1000,
+              disableOnInteraction: false,
+            }}
           >
             <SwiperSlide>
               <div className="partner__section__content__entry">
