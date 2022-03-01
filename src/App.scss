@@ -436,6 +436,7 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 }
 .swiper-slide:nth-child(even) .team__section__content__entry:hover {
   transition: 300ms ease-in-out;
@@ -467,7 +468,9 @@ body {
 }
 .team__section__content__entry__img {
   width: 80%;
-  border-radius: 50px;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
 }
 .team__section__content__entry__link {
   display: flex;
