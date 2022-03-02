@@ -723,7 +723,7 @@ function Home({ setWalletAddress, setIsOn }) {
                 designation="CEO"
                 facebook=""
                 instagram=""
-                linkedin=""
+                linkedin="https://www.linkedin.com/in/muzammil-haider-1a8526148"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -731,28 +731,22 @@ function Home({ setWalletAddress, setIsOn }) {
                 image={teamImg5}
                 name="Md Asfar"
                 designation="COO"
-                facebook=""
-                instagram=""
-                linkedin=""
+                linkedin="https://www.linkedin.com/in/md-afsar/"
               />
             </SwiperSlide>
-            <SwiperSlide>
+            {/* <SwiperSlide>
               <TeamCard
                 image={teamImg6}
                 name="Mustafa Tahseen"
                 designation="CMO"
-                facebook=""
-                instagram=""
                 linkedin=""
               />
-            </SwiperSlide>
+            </SwiperSlide> */}
             <SwiperSlide>
               <TeamCard
                 image={teamImg4}
                 name="Ameer A. Khammas"
                 designation="Marketing Lead"
-                facebook=""
-                instagram=""
                 linkedin=""
               />
             </SwiperSlide>
@@ -761,9 +755,7 @@ function Home({ setWalletAddress, setIsOn }) {
                 image={teamImg3}
                 name="M. Abdullah Shahid"
                 designation="Blockchain Developer"
-                facebook=""
-                instagram=""
-                linkedin=""
+                linkedin="https://www.linkedin.com/in/muhammad-abdullah-s-0781a394/"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -771,9 +763,7 @@ function Home({ setWalletAddress, setIsOn }) {
                 image={teamImg2}
                 name="Mehfooz-ur-Rehman"
                 designation="Full Stack Developer"
-                facebook=""
-                instagram=""
-                linkedin=""
+                linkedin="https://www.linkedin.com/in/mehfooz-rehman-37a1b0231/"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -781,8 +771,6 @@ function Home({ setWalletAddress, setIsOn }) {
                 image={teamImg1}
                 name="Hammad Habib"
                 designation="UI/UX Designer"
-                facebook=""
-                instagram=""
                 linkedin=""
               />
             </SwiperSlide>
