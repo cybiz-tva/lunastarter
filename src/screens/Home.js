@@ -38,18 +38,6 @@ function TeamCard({ image, name, designation, facebook, instagram, linkedin }) {
       />
       <div className="team__section__content__entry__link">
         <a
-          href={facebook}
-          className="team__section__content__entry__link__entry"
-        >
-          <Facebook size={20} color="currentColor" />
-        </a>
-        <a
-          href={instagram}
-          className="team__section__content__entry__link__entry"
-        >
-          <Instagram size={20} color="currentColor" />
-        </a>
-        <a
           href={linkedin}
           className="team__section__content__entry__link__entry"
         >
@@ -730,39 +718,9 @@ function Home({ setWalletAddress, setIsOn }) {
           >
             <SwiperSlide>
               <TeamCard
-                image={teamImg1}
-                name="Hammad Habib"
-                designation="Designer"
-                facebook=""
-                instagram=""
-                linkedin=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <TeamCard
-                image={teamImg2}
-                name="Mehfooz-ur-Rehman"
-                designation="Developer"
-                facebook=""
-                instagram=""
-                linkedin=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <TeamCard
-                image={teamImg3}
-                name="M. Abdullah Shahid"
-                designation="Developer"
-                facebook=""
-                instagram=""
-                linkedin=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <TeamCard
-                image={teamImg4}
-                name="Ameer A. Khammas"
-                designation="Marketing Lead"
+                image={teamImg7}
+                name="Muzammil Haider"
+                designation="CEO"
                 facebook=""
                 instagram=""
                 linkedin=""
@@ -790,9 +748,39 @@ function Home({ setWalletAddress, setIsOn }) {
             </SwiperSlide>
             <SwiperSlide>
               <TeamCard
-                image={teamImg7}
-                name="Muzammil Haider"
-                designation="CEO"
+                image={teamImg4}
+                name="Ameer A. Khammas"
+                designation="Marketing Lead"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg3}
+                name="M. Abdullah Shahid"
+                designation="Blockchain Developer"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg2}
+                name="Mehfooz-ur-Rehman"
+                designation="Full Stack Developer"
+                facebook=""
+                instagram=""
+                linkedin=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <TeamCard
+                image={teamImg1}
+                name="Hammad Habib"
+                designation="UI/UX Designer"
                 facebook=""
                 instagram=""
                 linkedin=""
