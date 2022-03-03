@@ -28,12 +28,13 @@ export default function Footer() {
             Lunastarter is the world's first tierless launchpad and incubator
             built on Terra blockchain.
           </div>
-          <div
+          <a
+            href="mailto:hello@lunastarter.io"
             className="footer__overlay__content__col__text"
-            style={{ marginTop: 5 }}
+            style={{ marginTop: 20 }}
           >
             hello@lunastarter.io
-          </div>
+          </a>
         </div>
 
         <div className="footer__overlay__content__col">

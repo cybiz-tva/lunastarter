@@ -770,7 +770,7 @@ function Home({ setWalletAddress, setIsOn }) {
               <TeamCard
                 image={teamImg1}
                 name="Hammad Habib"
-                designation="UI/UX Designer"
+                designation="UI/UX Design Lead"
                 linkedin=""
               />
             </SwiperSlide>

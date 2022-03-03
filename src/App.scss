@@ -542,9 +542,8 @@ body {
 .footer__conatiner {
   width: 100%;
   height: fit-content;
-  padding: 0em 1em;
-  min-height: 350px;
-  background: #ffffff;
+  background: url("./assets/footerBg.gif");
+  background-size: contain;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -552,20 +551,24 @@ body {
 }
 .footer__conatiner__content {
   width: 100%;
-  max-width: 1440px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
   margin: 0px auto;
-  padding: 0em 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 3em 2em;
 }
 .footer__overlay__content__col {
   flex: 1;
   padding-right: 1em;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .footer__overlay__content__col:last-child {
   flex-direction: row;
+  justify-content: center;
+  margin-top: 2em;
 }
 .footer__overlay__content__col__heading {
   font-size: 18px;
@@ -597,6 +600,15 @@ body {
   font-size: 16px;
   margin-top: 2em;
   width: 90%;
+  text-align: center;
+}
+.footer__overlay__content__col__text:last-child {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  width: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 50px;
+  color: #242424;
 }
 .footer__conatiner__buttom__border {
   width: 90%;
@@ -965,9 +977,6 @@ body {
   .footer__overlay__content__col__img {
     max-width: 180px;
   }
-  .footer__overlay__content__col:last-child {
-    flex-direction: column;
-  }
   .footer__overlay__content__col__entry {
     font-size: 14px;
     margin-bottom: 1em;
@@ -1143,7 +1152,9 @@ body {
   .team__section__content__entry {
     width: 100%;
   }
-
+  .footer__overlay__content__col:last-child {
+    flex-wrap: wrap;
+  }
   .allowance__form {
     min-width: 100%;
   }
