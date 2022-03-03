@@ -771,7 +771,7 @@ function Home({ setWalletAddress, setIsOn }) {
                 image={teamImg1}
                 name="Hammad Habib"
                 designation="UI/UX Design Lead"
-                linkedin=""
+                linkedin="www.linkedin.com/in/hammadhabib"
               />
             </SwiperSlide>
           </Swiper>
