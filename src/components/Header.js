@@ -57,9 +57,6 @@ function Header({ isOn }) {
                       connect(type, identifier);
                       if (isOn === "stake") {
                         navigate("/");
-                        setTimeout(() => {
-                          navigate("/stake");
-                        }, 1000);
                       }
                     }}
                   >
@@ -126,9 +123,6 @@ function Header({ isOn }) {
                         connect(type, identifier);
                         if (isOn === "stake") {
                           navigate("/");
-                          setTimeout(() => {
-                            navigate("/stake");
-                          }, 1000);
                         }
                       }}
                     >

@@ -54,7 +54,7 @@ function TeamCard({ image, name, designation, facebook, instagram, linkedin }) {
   );
 }
 
-function Home({ setWalletAddress, setIsOn }) {
+function Home({ setWalletAddress, setIsOn, json }) {
   const navigate = useNavigate();
   const [slidesPerView, setSlidesPerView] = useState(6);
   const [teamsPerView, setTeamsPerView] = useState(4);
@@ -102,7 +102,9 @@ function Home({ setWalletAddress, setIsOn }) {
       }
     });
   }, [window.innerWidth]);
-  const { wallets } = useWallet();
+  const { wallets, network } = useWallet();
+  // console.log("homenetwork", network);
+
   return (
     <>
       <div className="home__section">

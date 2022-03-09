@@ -1,4 +1,14 @@
 {
-  "token": "terra1pmq40axp9a06zwypnkmkqdtf3hlpamlv36vx9a",
-  "stake": "terra1szl8xwmyt4z8kmsdfqthfq6rc9umypw374nrqp"
+  "https://bombay-lcd.terra.dev": {
+    "bombay-12": {
+      "token": "terra1pmq40axp9a06zwypnkmkqdtf3hlpamlv36vx9a",
+      "stake": "terra1szl8xwmyt4z8kmsdfqthfq6rc9umypw374nrqp"
+    }
+  },
+  "https://lcd.terra.dev": {
+    "columbus-5": {
+      "token": "terra17fj78yt7qqpdkh492v45qscvvpnnma7e3m4k3d",
+      "stake": "terra1p7zj346ag30palk27unvxunwkahc26jxvy3rl0"
+    }
+  }
 }

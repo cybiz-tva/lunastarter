@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import { Lock, Unlock } from "react-feather";
 import { useConnectedWallet, useLCDClient } from "@terra-money/wallet-provider";
 import { MsgExecuteContract } from "@terra-money/terra.js";
-import contracts from "../assets/contracts.json";
 
-function TableRow({ data, connectedWallet, lock, getStakes, getAllowance }) {
+function TableRow({
+  data,
+  connectedWallet,
+  lock,
+  getStakes,
+  getAllowance,
+  json,
+}) {
   // console.log(data);
   const [disable, setDisable] = useState(false);
   let apr = "40%";
@@ -45,7 +51,7 @@ function TableRow({ data, connectedWallet, lock, getStakes, getAllowance }) {
         msgs: [
           new MsgExecuteContract(
             connectedWallet.walletAddress,
-            contracts.stake,
+            json.stake,
             {
               claim: {
                 index: data.index,
@@ -100,13 +106,13 @@ function TableRow({ data, connectedWallet, lock, getStakes, getAllowance }) {
           onClick={claim}
           disabled={disable ? true : lock && claim_allowed_time != 0}
         >
-          {lock === false && claim_allowed_time != 0 ? "Withdraw" : "Claim"}
+          {lock === false && claim_allowed_time != 0 ? "Unstake" : "Claim"}
         </button>
       </div>
     </div>
   );
 }
-export default function Stake({ walletAddress, setIsOn }) {
+export default function Stake({ walletAddress, setIsOn, json }) {
   const integer = 1000000;
   const lcd = useLCDClient();
   const connectedWallet = useConnectedWallet();
@@ -123,26 +129,26 @@ export default function Stake({ walletAddress, setIsOn }) {
   const [lst, setLst] = useState(0);
 
   async function getLST() {
-    let result = await lcd.wasm.contractQuery(contracts.token, {
+    let result = await lcd.wasm.contractQuery(json.token, {
       balance: { address: walletAddress },
     });
     setLst(result.balance / integer);
     console.log(result.balance / integer);
   }
   async function getAllowance() {
-    let result = await lcd.wasm.contractQuery(contracts.token, {
-      allowance: { owner: walletAddress, spender: contracts.stake },
+    let result = await lcd.wasm.contractQuery(json.token, {
+      allowance: { owner: walletAddress, spender: json.stake },
     });
     setCurrentAllowance(result.allowance / integer);
     console.log(result.allowance / integer);
     getLST();
     console.log(
-      `allowance: { owner: ${walletAddress}, spender: ${contracts.stake} },`
+      `allowance: { owner: ${walletAddress}, spender: ${json.stake} },`
     );
   }
 
   async function getStakes() {
-    let result = await lcd.wasm.contractQuery(contracts.stake, {
+    let result = await lcd.wasm.contractQuery(json.stake, {
       get_data: { address: walletAddress },
     });
     setTotalStaked(result.state.total_staked / integer);
@@ -168,10 +174,10 @@ export default function Stake({ walletAddress, setIsOn }) {
         msgs: [
           new MsgExecuteContract(
             connectedWallet.walletAddress,
-            contracts.token,
+            json.token,
             {
               increase_allowance: {
-                spender: contracts.stake,
+                spender: json.stake,
                 amount: (allowanceAmount * integer).toString(),
               },
             },
@@ -199,10 +205,10 @@ export default function Stake({ walletAddress, setIsOn }) {
         msgs: [
           new MsgExecuteContract(
             connectedWallet.walletAddress,
-            contracts.token,
+            json.token,
             {
               decrease_allowance: {
-                spender: contracts.stake,
+                spender: json.stake,
                 amount: (allowanceAmount * integer).toString(),
               },
             },
@@ -237,7 +243,7 @@ export default function Stake({ walletAddress, setIsOn }) {
           msgs: [
             new MsgExecuteContract(
               connectedWallet.walletAddress,
-              contracts.stake,
+              json.stake,
               {
                 stake: {
                   amount: (stakingAmount * integer).toString(),

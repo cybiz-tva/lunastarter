@@ -1,0 +1,6 @@
+"https://bombay-lcd.terra.dev": {
+    "bombay-12": {
+      "token": "terra1pmq40axp9a06zwypnkmkqdtf3hlpamlv36vx9a",
+      "stake": "terra1szl8xwmyt4z8kmsdfqthfq6rc9umypw374nrqp"
+    }
+  }
