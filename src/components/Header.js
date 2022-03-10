@@ -79,7 +79,7 @@ function Header({ isOn }) {
         {isNavOpen ? (
           <div className="header__nav">
             <Link
-              to="/"
+              to="/ido"
               // onClick={() => {
               //   setTimeout(() => {
               //     document.getElementById("about__section").scrollIntoView();

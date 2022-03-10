@@ -6,6 +6,7 @@ import Home from "./screens/Home";
 import { Route, Routes } from "react-router-dom";
 import Stake from "./screens/Stake";
 import { useWallet } from "@terra-money/wallet-provider";
+import IDO from "screens/IDO";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -37,6 +38,16 @@ function App() {
             path="/"
             element={
               <Home
+                setWalletAddress={setWalletAddress}
+                setIsOn={setIsOn}
+                json={json}
+              />
+            }
+          />
+          <Route
+            path="/ido"
+            element={
+              <IDO
                 setWalletAddress={setWalletAddress}
                 setIsOn={setIsOn}
                 json={json}
