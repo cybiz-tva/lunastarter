@@ -6,7 +6,7 @@ import teamImg1 from "../assets/image1.jpeg";
 import teamImg2 from "../assets/image2.jpeg";
 import teamImg3 from "../assets/image3.jpeg";
 import teamImg4 from "../assets/image4.jpeg";
-import teamImg5 from "../assets/image5.jpeg";
+import teamImg5 from "../assets/image5.png";
 import teamImg6 from "../assets/image6.jpeg";
 import teamImg7 from "../assets/image7.jpeg";
 import Iconawesomefacebook from "../assets/Icon awesome-facebook-f.png";
@@ -189,7 +189,7 @@ function Home({ setWalletAddress, setIsOn, json }) {
           />
           <FeatureEntry
             title="Guaranteed and fair allocation"
-            description=" Every participant who has staked their tokens will be able to participate in IDOs. No whitelisting. "
+            description=" Every participant who has staked their tokens will be able to participate in IDOs. No whitelisting."
             svg={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -209,8 +209,7 @@ function Home({ setWalletAddress, setIsOn, json }) {
           />
           <FeatureEntry
             title="Vesting"
-            description="We also have a token locking feature Jhere tokens are released according to a vesting schedule.
-              "
+            description="We also have a token locking feature Jhere tokens are released according to a vesting schedule."
             svg={
               <svg
                 xmlns="http://www.w3.org/2000/svg"

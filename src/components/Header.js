@@ -80,19 +80,19 @@ function Header({ isOn }) {
           <div className="header__nav">
             <Link
               to="/"
-              onClick={() => {
-                setTimeout(() => {
-                  document.getElementById("about__section").scrollIntoView();
-                }, 300);
-              }}
+              // onClick={() => {
+              //   setTimeout(() => {
+              //     document.getElementById("about__section").scrollIntoView();
+              //   }, 300);
+              // }}
               className="header__nav__link"
             >
-              About
+              Apply for IDO
             </Link>
 
-            <Link to="/stake" className="header__nav__link">
+            {/* <Link to="/stake" className="header__nav__link">
               Stake
-            </Link>
+            </Link> */}
             <a
               href="https://docs.lunastarter.io"
               target="_blank"
