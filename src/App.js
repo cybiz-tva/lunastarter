@@ -8,6 +8,7 @@ import Stake from "./screens/Stake";
 import { useWallet } from "@terra-money/wallet-provider";
 import IDO from "screens/IDO";
 import Sales from "screens/Sales";
+import Governance from "screens/Governance";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -59,6 +60,16 @@ function App() {
             path="/sales"
             element={
               <Sales
+                setWalletAddress={setWalletAddress}
+                setIsOn={setIsOn}
+                json={json}
+              />
+            }
+          />
+          <Route
+            path="/governance"
+            element={
+              <Governance
                 setWalletAddress={setWalletAddress}
                 setIsOn={setIsOn}
                 json={json}
