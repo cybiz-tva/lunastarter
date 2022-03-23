@@ -89,7 +89,28 @@ function Header({ isOn }) {
             >
               Apply for IDO
             </Link>
-
+            <Link
+              to="/sales"
+              // onClick={() => {
+              //   setTimeout(() => {
+              //     document.getElementById("about__section").scrollIntoView();
+              //   }, 300);
+              // }}
+              className="header__nav__link"
+            >
+              Sales
+            </Link>
+            <Link
+              to="/governance"
+              // onClick={() => {
+              //   setTimeout(() => {
+              //     document.getElementById("about__section").scrollIntoView();
+              //   }, 300);
+              // }}
+              className="header__nav__link"
+            >
+              Governance
+            </Link>
             {/* <Link to="/stake" className="header__nav__link">
               Stake
             </Link> */}
