@@ -89,7 +89,7 @@ function Header({ isOn }) {
             >
               Apply for IDO
             </Link>
-            <Link
+            {/* <Link
               to="/sales"
               // onClick={() => {
               //   setTimeout(() => {
@@ -110,7 +110,7 @@ function Header({ isOn }) {
               className="header__nav__link"
             >
               Governance
-            </Link>
+            </Link> */}
             {/* <Link to="/stake" className="header__nav__link">
               Stake
             </Link> */}

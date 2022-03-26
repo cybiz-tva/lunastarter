@@ -66,7 +66,7 @@ function TableRow({
         setTimeout(() => {
           getAllowance();
           getStakes();
-          console.log("claim");
+          // console.log("claim");
           setDisable(false);
         }, 10000);
       })
@@ -133,18 +133,18 @@ export default function Stake({ walletAddress, setIsOn, json }) {
       balance: { address: walletAddress },
     });
     setLst(result.balance / integer);
-    console.log(result.balance / integer);
+    // console.log(result.balance / integer);
   }
   async function getAllowance() {
     let result = await lcd.wasm.contractQuery(json.token, {
       allowance: { owner: walletAddress, spender: json.stake },
     });
     setCurrentAllowance(result.allowance / integer);
-    console.log(result.allowance / integer);
+    // console.log(result.allowance / integer);
     getLST();
-    console.log(
-      `allowance: { owner: ${walletAddress}, spender: ${json.stake} },`
-    );
+    // console.log(
+    //   `allowance: { owner: ${walletAddress}, spender: ${json.stake} },`
+    // );
   }
 
   async function getStakes() {
@@ -158,7 +158,7 @@ export default function Stake({ walletAddress, setIsOn, json }) {
       setMyStakes(userStakeAmount / integer);
     });
     setStakeData(result.user_stakes);
-    console.log(result);
+    // console.log(result);
   }
   useEffect(() => {
     if (connectedWallet) {
@@ -190,7 +190,7 @@ export default function Stake({ walletAddress, setIsOn, json }) {
         setTimeout(() => {
           getAllowance();
           getStakes();
-          console.log("increaseAllowance");
+          // console.log("increaseAllowance");
           setDisable(false);
         }, 10000);
       })
@@ -221,7 +221,7 @@ export default function Stake({ walletAddress, setIsOn, json }) {
         setTimeout(() => {
           getAllowance();
           getStakes();
-          console.log("decreaseAllowance");
+          // console.log("decreaseAllowance");
           setDisable(false);
         }, 10000);
       })
@@ -232,7 +232,7 @@ export default function Stake({ walletAddress, setIsOn, json }) {
   }
   async function stake(e) {
     e.preventDefault();
-    console.log(stakingAmount);
+    // console.log(stakingAmount);
     if (stakingAmount > currentAllowance) {
       setAllowanceAmount(stakingAmount - currentAllowance);
     } else if (stakingAmount === "0") {
@@ -260,7 +260,7 @@ export default function Stake({ walletAddress, setIsOn, json }) {
           setTimeout(() => {
             getAllowance();
             getStakes();
-            console.log("stake");
+            // console.log("stake");
             setDisable(false);
           }, 10000);
         })
@@ -352,6 +352,7 @@ export default function Stake({ walletAddress, setIsOn, json }) {
               <TableRow
                 key={i}
                 data={item}
+                json={json}
                 connectedWallet={connectedWallet}
                 lcd={lcd}
                 lock={lock}

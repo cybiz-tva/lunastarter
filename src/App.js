@@ -25,11 +25,11 @@ function App() {
           token: "terra1pmq40axp9a06zwypnkmkqdtf3hlpamlv36vx9a",
           stake: "terra1szl8xwmyt4z8kmsdfqthfq6rc9umypw374nrqp",
         };
-  console.log("json", json);
-  console.log("chainId", network.chainID);
-  console.log("lcd", network.lcd);
-  console.log("name", network.name);
-  console.log(network);
+  // console.log("json", json);
+  // console.log("chainId", network.chainID);
+  // console.log("lcd", network.lcd);
+  // console.log("name", network.name);
+  // console.log(network);
 
   return (
     <>
