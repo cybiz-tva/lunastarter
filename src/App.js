@@ -18,8 +18,8 @@ function App() {
   const json =
     network.name === "mainnet"
       ? {
-          token: "terra17fj78yt7qqpdkh492v45qscvvpnnma7e3m4k3d",
-          stake: "terra1p7zj346ag30palk27unvxunwkahc26jxvy3rl0",
+          token: "terra1g8d8dmfangktvwul2a0dvkjvztk8ehw6sseqpw",
+          stake: "terra1yzz52pnx78j4y8rkl6rk852w6d7naxc2ulvncw",
         }
       : {
           token: "terra1pmq40axp9a06zwypnkmkqdtf3hlpamlv36vx9a",
