@@ -1,13 +1,11 @@
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-function Governance({}) {
+export default function Governance({}) {
   return (
     <div className="governance__section">
       <div className="governance__section__heading">Governance</div>
@@ -36,7 +34,7 @@ function Governance({}) {
                 text ever since the 1500s, when an
               </div>
               <div className="governance__section__content__entry__time">
-                <span>03</span> Days <span>34</span> Hours <span>36</span>{" "}
+                <span>03</span> Days <span>34</span> Hours <span>36</span>
                 Minutes <span>56</span> Seconds
               </div>
               <div
@@ -80,7 +78,7 @@ function Governance({}) {
                     343434
                   </div>
                 </div>
-              </div>{" "}
+              </div>
               <div className="governance__section__content__entry__row">
                 <button className="governance__section__content__entry__row__btn governance__section__content__entry__row__btn__primary">
                   YES
@@ -126,7 +124,7 @@ function Governance({}) {
                 text ever since the 1500s, when an
               </div>
               <div className="governance__section__content__entry__time">
-                <span>03</span> Days <span>34</span> Hours <span>36</span>{" "}
+                <span>03</span> Days <span>34</span> Hours <span>36</span>
                 Minutes <span>56</span> Seconds
               </div>
               <div
@@ -170,7 +168,7 @@ function Governance({}) {
                     343434
                   </div>
                 </div>
-              </div>{" "}
+              </div>
               <div className="governance__section__content__entry__row">
                 <button className="governance__section__content__entry__row__btn governance__section__content__entry__row__btn__primary">
                   YES
@@ -216,7 +214,7 @@ function Governance({}) {
                 text ever since the 1500s, when an
               </div>
               <div className="governance__section__content__entry__time">
-                <span>03</span> Days <span>34</span> Hours <span>36</span>{" "}
+                <span>03</span> Days <span>34</span> Hours <span>36</span>
                 Minutes <span>56</span> Seconds
               </div>
               <div
@@ -260,7 +258,7 @@ function Governance({}) {
                     343434
                   </div>
                 </div>
-              </div>{" "}
+              </div>
               <div className="governance__section__content__entry__row">
                 <button className="governance__section__content__entry__row__btn governance__section__content__entry__row__btn__primary">
                   YES
@@ -306,7 +304,7 @@ function Governance({}) {
                 text ever since the 1500s, when an
               </div>
               <div className="governance__section__content__entry__time">
-                <span>03</span> Days <span>34</span> Hours <span>36</span>{" "}
+                <span>03</span> Days <span>34</span> Hours <span>36</span>
                 Minutes <span>56</span> Seconds
               </div>
               <div
@@ -350,7 +348,7 @@ function Governance({}) {
                     343434
                   </div>
                 </div>
-              </div>{" "}
+              </div>
               <div className="governance__section__content__entry__row">
                 <button className="governance__section__content__entry__row__btn governance__section__content__entry__row__btn__primary">
                   YES
@@ -396,7 +394,7 @@ function Governance({}) {
                 text ever since the 1500s, when an
               </div>
               <div className="governance__section__content__entry__time">
-                <span>03</span> Days <span>34</span> Hours <span>36</span>{" "}
+                <span>03</span> Days <span>34</span> Hours <span>36</span>
                 Minutes <span>56</span> Seconds
               </div>
               <div
@@ -440,7 +438,7 @@ function Governance({}) {
                     343434
                   </div>
                 </div>
-              </div>{" "}
+              </div>
               <div className="governance__section__content__entry__row">
                 <button className="governance__section__content__entry__row__btn governance__section__content__entry__row__btn__primary">
                   YES
@@ -486,7 +484,7 @@ function Governance({}) {
                 text ever since the 1500s, when an
               </div>
               <div className="governance__section__content__entry__time">
-                <span>03</span> Days <span>34</span> Hours <span>36</span>{" "}
+                <span>03</span> Days <span>34</span> Hours <span>36</span>
                 Minutes <span>56</span> Seconds
               </div>
               <div
@@ -530,7 +528,7 @@ function Governance({}) {
                     343434
                   </div>
                 </div>
-              </div>{" "}
+              </div>
               <div className="governance__section__content__entry__row">
                 <button className="governance__section__content__entry__row__btn governance__section__content__entry__row__btn__primary">
                   YES
@@ -573,4 +571,3 @@ function Governance({}) {
     </div>
   );
 }
-export default Governance;

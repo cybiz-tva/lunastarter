@@ -1,4 +1,4 @@
-function IDO({}) {
+export default function IDO({}) {
   return (
     <>
       <div className="home__section" style={{ marginBottom: 50, height: 500 }}>
@@ -16,5 +16,3 @@ function IDO({}) {
     </>
   );
 }
-
-export default IDO;

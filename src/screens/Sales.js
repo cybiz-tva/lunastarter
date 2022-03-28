@@ -1,4 +1,4 @@
-function Sales({}) {
+export default function Sales({}) {
   return (
     <>
       <div className="sales__section">
@@ -94,5 +94,3 @@ function Sales({}) {
     </>
   );
 }
-
-export default Sales;
