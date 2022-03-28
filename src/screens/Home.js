@@ -114,6 +114,23 @@ export default function Home({ setWalletAddress, setIsOn, json }) {
             Join Community
           </a>
         </div>
+        <div
+          style={{
+            color: "white",
+            fontSize: 16,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: "2em",
+          }}
+        >
+          INCUBATED BY
+          <img
+            src={partner2}
+            alt="partner2"
+            style={{ height: 250, marginTop: -70, marginBottom: -130 }}
+          />
+        </div>
       </div>
       <FeatureSection />
       <AboutSection logoBig={logoBig} />
