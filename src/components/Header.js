@@ -88,8 +88,8 @@ function Header({ isOn }) {
               className="header__nav__link"
             >
               Apply for IDO
-            </Link>
-            {/* <Link
+            </Link>{" "}
+            <Link
               to="/sales"
               // onClick={() => {
               //   setTimeout(() => {
@@ -100,6 +100,7 @@ function Header({ isOn }) {
             >
               Sales
             </Link>
+            {/*
             <Link
               to="/governance"
               // onClick={() => {

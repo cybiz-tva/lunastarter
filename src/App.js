@@ -20,10 +20,12 @@ function App() {
       ? {
           token: "terra1g8d8dmfangktvwul2a0dvkjvztk8ehw6sseqpw",
           stake: "terra1yzz52pnx78j4y8rkl6rk852w6d7naxc2ulvncw",
+          sale: "",
         }
       : {
           token: "terra1pmq40axp9a06zwypnkmkqdtf3hlpamlv36vx9a",
           stake: "terra1szl8xwmyt4z8kmsdfqthfq6rc9umypw374nrqp",
+          sale: "terra184v7dfn4lax0dvnvmqgkxtmmx8xlpsl540q033",
         };
   // console.log("json", json);
   // console.log("chainId", network.chainID);
@@ -60,7 +62,7 @@ function App() {
             path="/sales"
             element={
               <Sales
-                setWalletAddress={setWalletAddress}
+                walletAddress={walletAddress}
                 setIsOn={setIsOn}
                 json={json}
               />
@@ -70,7 +72,7 @@ function App() {
             path="/governance"
             element={
               <Governance
-                setWalletAddress={setWalletAddress}
+                walletAddress={walletAddress}
                 setIsOn={setIsOn}
                 json={json}
               />
