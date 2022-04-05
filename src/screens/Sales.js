@@ -1,9 +1,11 @@
-import { useLCDClient } from "@terra-money/wallet-provider";
+import { useConnectedWallet, useLCDClient } from "@terra-money/wallet-provider";
 import { useEffect, useState } from "react";
+import { MsgExecuteContract } from "@terra-money/terra.js";
 
 export default function Sales({ json, walletAddress }) {
   const integer = 1000000;
   const lcd = useLCDClient();
+  const connectedWallet = useConnectedWallet();
   const [salesData, setSalesData] = useState([]);
   const [bought, setBought] = useState(0);
   const [remaining, setRemaining] = useState(0);
@@ -16,32 +18,68 @@ export default function Sales({ json, walletAddress }) {
   const [saleAmount, setSaleAmount] = useState("");
   const [rateLunastarter, setRateLunastarter] = useState(0);
   const [rateUSDT, setRateUSDT] = useState(0);
+  const [disable, setDisable] = useState(false);
+
+  async function getSale() {
+    let result = await lcd.wasm.contractQuery(json.sale, {
+      get_data: { addr: walletAddress },
+    });
+    setSalesData(result);
+    setBought((result.user_data.limit_used / result.sale_data.limit) * 100);
+    setRemaining(
+      100 - (result.user_data.limit_used / result.sale_data.limit) * 100
+    );
+    setLimit(result.sale_data.limit / integer);
+    setLimitUsed(result.user_data.limit_used / integer);
+    setTotalSoldOut(
+      100 -
+        parseInt((result.sale_data.remaining / result.sale_data.amount) * 100)
+    );
+    setTotalSoldOutAmount(
+      (result.sale_data.amount - result.sale_data.remaining) / integer
+    );
+    setTotalRemaining(
+      parseInt((result.sale_data.remaining / result.sale_data.amount) * 100)
+    );
+    setTotalRemainingAmount(result.sale_data.remaining / integer);
+    setRateLunastarter(parseInt(result.sale_data.rate_lunastarter));
+    setRateUSDT(parseInt(result.sale_data.rate_usdt));
+  }
   useEffect(() => {
-    async function getSale() {
-      let result = await lcd.wasm.contractQuery(json.sale, {
-        get_data: { addr: walletAddress },
-      });
-      setSalesData(result);
-      setBought((result.user_data.limit_used / result.sale_data.limit) * 100);
-      setRemaining(
-        100 - (result.user_data.limit_used / result.sale_data.limit) * 100
-      );
-      setLimit(result.sale_data.limit / integer);
-      setLimitUsed(result.user_data.limit_used / integer);
-      setTotalSoldOut(result.sale_data.amount - result.sale_data.remaining);
-      setTotalSoldOutAmount(
-        (result.sale_data.amount - result.sale_data.remaining) / integer
-      );
-      setTotalRemaining(
-        (result.sale_data.amount / result.sale_data.remaining) * 100
-      );
-      setTotalRemainingAmount(result.sale_data.remaining / integer);
-      setRateLunastarter(parseInt(result.sale_data.rate_lunastarter));
-      setRateUSDT(parseInt(result.sale_data.rate_usdt));
-    }
     getSale();
   }, []);
   console.log(salesData);
+
+  function BuyLST(e) {
+    e.preventDefault();
+    connectedWallet
+      .post({
+        msgs: [
+          new MsgExecuteContract(
+            connectedWallet.walletAddress,
+            json.sale,
+            {
+              buy_lunastarter: {},
+            },
+            {
+              uusd: (parseFloat(saleAmount) * integer).toString(),
+            }
+          ),
+        ],
+      })
+      .then(() => {
+        setDisable(true);
+        console.log("success");
+        setTimeout(() => {
+          getSale();
+          setDisable(false);
+        }, 10000);
+      })
+      .catch((err) => {
+        console.log(err);
+        setDisable(false);
+      });
+  }
 
   // {"user_data":{"last_bought_time":0,"limit_used":"0"},"sale_data":{"amount":"10000000000","remaining":"10000000000","limit":"100000000","start_time":1649067110,"end_time":1649096649,"rate_usdt":"1","rate_lunastarter":"2"}}
 
@@ -77,7 +115,7 @@ export default function Sales({ json, walletAddress }) {
           </div>
         </div>
         <div className="sales__section__content">
-          <form className="sales__section__content__left">
+          <form className="sales__section__content__left" onSubmit={BuyLST}>
             <div className="sales__section__content__left__heading">Sales</div>
             <div className="sales__section__content__left__sub__heading">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -108,6 +146,7 @@ export default function Sales({ json, walletAddress }) {
                 marginLeft: "0em",
                 fontSize: 15,
               }}
+              disabled={disable}
             >
               Buy LST
             </button>

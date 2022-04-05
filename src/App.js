@@ -25,7 +25,7 @@ function App() {
       : {
           token: "terra1pmq40axp9a06zwypnkmkqdtf3hlpamlv36vx9a",
           stake: "terra1szl8xwmyt4z8kmsdfqthfq6rc9umypw374nrqp",
-          sale: "terra184v7dfn4lax0dvnvmqgkxtmmx8xlpsl540q033",
+          sale: "terra174w2r96hgn400tlt55wp33wkdnrpzdhcj3kuvu",
         };
   // console.log("json", json);
   // console.log("chainId", network.chainID);

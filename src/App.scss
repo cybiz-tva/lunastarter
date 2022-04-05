@@ -218,7 +218,6 @@ body {
   text-decoration: none;
   text-align: center;
 }
-
 .home__section__buttons__btn:before {
   content: "";
   position: absolute;
@@ -243,6 +242,9 @@ body {
   background: linear-gradient(90deg, #6825e6, #a655ba);
   transition: background 0s;
 }
+.home__section__buttons__btn:disabled:before {
+  background: #242424;
+}
 .home__section__buttons__btn__primary {
   background: linear-gradient(90deg, #3480a1, #2eaab4, #26e4cf);
 }
@@ -257,6 +259,9 @@ body {
 }
 .home__section__buttons__btn__secondary {
   background: linear-gradient(90deg, #6825e6, #a655ba);
+}
+.home__section__buttons__btn__secondary:disabled {
+  background: #242424;
 }
 .home__section__buttons__btn__secondary:hover {
   color: #6825e6;
