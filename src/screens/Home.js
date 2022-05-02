@@ -14,6 +14,12 @@ import partner2 from "../assets/cardence.png";
 import partner3 from "../assets/coinpublic.png";
 import partner4 from "../assets/oddiyana.png";
 import partner5 from "../assets/Cryptokingdom.png";
+import partner6 from "../assets/azventures.png";
+import partner7 from "../assets/cubicpool.png";
+import partner8 from "../assets/ganacheventures.png";
+import partner9 from "../assets/herogemsventrues.png";
+import partner10 from "../assets/redswiss.png";
+import partner11 from "../assets/kpc.png";
 import { useNavigate } from "react-router-dom";
 import SwiperCore, { Autoplay } from "swiper";
 import { useWallet } from "@terra-money/wallet-provider";
@@ -136,11 +142,19 @@ export default function Home({ setWalletAddress, setIsOn, json }) {
       <AboutSection logoBig={logoBig} />
       <RoadMapSection roadMapPic={roadMapPic} />
       <PartnerSection
-        partner1={partner1}
-        partner2={partner2}
-        partner4={partner4}
-        partner3={partner3}
-        partner5={partner5}
+        partners={[
+          partner1,
+          partner2,
+          partner3,
+          partner4,
+          partner5,
+          partner6,
+          partner7,
+          partner8,
+          partner9,
+          partner10,
+          partner11,
+        ]}
       />
       <TeamSection
         teamsPerView={teamsPerView}
