@@ -37,27 +37,27 @@
   "dependencies": {
     "@terra-money/terra.js": "^3.0.11",
     "@terra-money/wallet-provider": "^3.8.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-feather": "^2.0.9",
     "react-router-dom": "^6.3.0",
-    "sass": "^1.50.0",
+    "sass": "^1.51.0",
     "styled-components": "^5.3.5",
-    "swiper": "^8.1.1"
+    "swiper": "^8.1.4"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
-    "@types/jest": "^27.4.1",
-    "@types/react": "^18.0.5",
-    "@types/react-dom": "^18.0.1",
+    "@types/jest": "^27.5.0",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
     "buffer": "^6.0.3",
     "cross-env": "^7.0.3",
     "crypto-browserify": "^3.12.0",
-    "lint-staged": "^12.3.8",
+    "lint-staged": "^12.4.1",
     "process": "^0.11.10",
     "react-app-rewired": "^2.2.1",
     "react-scripts": "5.0.1",
     "stream-browserify": "^3.0.0",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.4"
   }
 }
