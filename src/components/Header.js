@@ -116,7 +116,7 @@ function Header({ isOn }) {
               Stake
             </Link> */}
             <a
-              href="https://docs.lunastarter.io"
+              href="o"
               target="_blank"
               className="header__nav__link"
             >
