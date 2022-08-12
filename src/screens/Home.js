@@ -110,10 +110,10 @@ export default function Home({ setWalletAddress, setIsOn, json }) {
               navigate("/stake");
             }}
           >
-            Stake $LST
+            Stake 
           </button>
           <a
-            href="https://t.me/LunaStarter"
+            href=""
             target="_blank"
             className="home__section__buttons__btn home__section__buttons__btn__secondary"
           >
