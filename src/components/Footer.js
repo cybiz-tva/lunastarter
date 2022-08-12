@@ -25,21 +25,21 @@ export default function Footer() {
             />
           </Link>
           <div className="footer__overlay__content__col__text">
-            Lunastarter is the world's first tierless launchpad and incubator
+            Stoverse is the world's first tierless launchpad and incubator
             built on Terra blockchain.
           </div>
           <a
-            href="mailto:hello@lunastarter.io"
+            href="mailto:hello@stoverse.io"
             className="footer__overlay__content__col__text"
             style={{ marginTop: 20 }}
           >
-            hello@lunastarter.io
+            hello@stoverse.io
           </a>
         </div>
 
         <div className="footer__overlay__content__col">
           <a
-            href="https://www.facebook.com/Lunastarter-104944465439150"
+            href=""
             className="footer__overlay__content__col__entry"
           >
             <Facebook
@@ -50,7 +50,7 @@ export default function Footer() {
             Facebook
           </a>
           <a
-            href="https://twitter.com/lunastarter_io"
+            href=""
             className="footer__overlay__content__col__entry"
           >
             <Twitter
@@ -61,7 +61,7 @@ export default function Footer() {
             Twitter
           </a>
           <a
-            href="https://discord.gg/KyDCDE9xDC"
+            href=""
             className="footer__overlay__content__col__entry"
           >
             <svg
@@ -81,7 +81,7 @@ export default function Footer() {
             Discord
           </a>
           <a
-            href="https://www.youtube.com/channel/UC2bJpRyq4Mcxl9u6n8ooBNw"
+            href=""
             className="footer__overlay__content__col__entry"
           >
             <Youtube
