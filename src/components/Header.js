@@ -78,8 +78,7 @@ function Header({ isOn }) {
         </div>
         {isNavOpen ? (
           <div className="header__nav">
-            <Link
-              to="/ido"
+            <href="https://atoll-ido-five.vercel.app/"
               // onClick={() => {
               //   setTimeout(() => {
               //     document.getElementById("about__section").scrollIntoView();
@@ -90,7 +89,7 @@ function Header({ isOn }) {
               Apply for IDO
             </Link>{" "}
             <Link
-              to="https://atoll-ido-five.vercel.app/"
+              to="/sales"
               // onClick={() => {
               //   setTimeout(() => {
               //     document.getElementById("about__section").scrollIntoView();
