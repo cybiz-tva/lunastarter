@@ -90,7 +90,7 @@ function Header({ isOn }) {
               Apply for IDO
             </Link>{" "}
             <Link
-              to="/sales"
+              to="https://atoll-ido-five.vercel.app/"
               // onClick={() => {
               //   setTimeout(() => {
               //     document.getElementById("about__section").scrollIntoView();
