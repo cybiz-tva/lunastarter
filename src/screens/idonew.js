@@ -1,9 +1,7 @@
-import { Route, Redirect } from 'react-router'
-
-<Route exact path="/" render={() => (
-  loggedIn ? (
-    <Redirect to="https://atoll-ido-five.vercel.app/"/>
-  ) : (
-    <PublicHomePage/>
-  )
-)}/>
+export default function App() {
+  return (
+    <a href="https://atoll-ido-five.vercel.app/" target="_blank" rel="noreferrer">
+      Google.com
+    </a>
+  );
+}
